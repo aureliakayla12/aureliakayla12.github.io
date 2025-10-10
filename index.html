@@ -169,8 +169,8 @@
   <!-- HEADER -->
   <header>
     <img src="https://via.placeholder.com/130" alt="Foto Profil">
-    <h1>Nama Lengkap</h1>
-    <p>Web Developer | UI/UX Enthusiast</p>
+    <h1>Kayla Aurelia Sakinah</h1>
+    <p>Junior Web Developer</p>
   </header>
 
   <!-- NAVIGATION -->
@@ -189,26 +189,28 @@
     <!-- PROFIL -->
     <section id="profil">
       <h2>Profil</h2>
-      <p>Saya adalah siswa SMK yang memiliki ketertarikan pada pengembangan web dan desain antarmuka pengguna. Saya suka menciptakan solusi digital yang interaktif dan mudah digunakan. Selama ini saya telah mengembangkan berbagai proyek web sebagai latihan dan juga saat PKL.</p>
+      <p>Saya merupakan Siswa dari SMK Informatika Utama jurusan Rekayasa Perangkat Lunak. Terbiasa menggunakan bahasa pemrograman dasar seperti HTML, CSS, dan Javascript. serta memiliki dasar pemahaman mengenai pengelolaan data menggunakan PHP dan MySQL.. 
+Saya terbiasa bekerja secara tim maupun individu, teliti, dan bertanggung jawab terhadap tugas yang diberikan.</p>
     </section>
 
     <!-- PENDIDIKAN -->
     <section id="pendidikan">
       <h2>Pendidikan</h2>
       <ul>
-        <li><strong>SMK Negeri 1 Webdev</strong> (2022 - 2025) – Rekayasa Perangkat Lunak</li>
-        <li><strong>SMPN 2 Coding</strong> (2019 - 2022)</li>
+        <li><strong>SMK Informatika Utama</strong> (2024 - Sekarang) – Rekayasa Perangkat Lunak</li>
+        <li><strong>MTS Ittihaadul Umam</strong> (2021 - 2024)</li>
+         <li><strong>MI Raudlatul Ilmiyah</strong> (2015 - 2021)</li>
       </ul>
     </section>
 
     <!-- PENGALAMAN -->
     <section id="pengalaman">
-      <h2>Pengalaman PKL</h2>
-      <p><strong>PT Kreatif Digital Indonesia</strong> (Juli - September 2024)</p>
+      <h2>Pengalaman</h2>
+      <p><strong>2024</strong></p>
       <ul>
-        <li>Membuat halaman web responsif menggunakan HTML, CSS, dan JavaScript.</li>
-        <li>Mempelajari pengelolaan proyek dengan Git dan GitHub.</li>
-        <li>Berperan dalam testing UI/UX dan perbaikan bug pada website klien.</li>
+        <li>Merancang dan mengembangkan website statis menggunakan HTML, dan CSS untuk menampilkan informasi produk secara dinamis.</li>
+        <li>Mengembangkan aplikasi kalkulator menggunakan JavaScript.</li>
+        <li>Merancang aplikasi kasir sederhana dengan fitur input barang, perhitungan total harga menggunakan JavaScript.</li>
       </ul>
     </section>
 
@@ -244,6 +246,52 @@
     <p>&copy; 2025 Nama Lengkap. All rights reserved.</p>
   </footer>
 
+   <!-- JAVASCRIPT -->
+  <script>
+    // Smooth scroll handled by CSS scroll-behavior, but for offset (sticky nav height) we override:
+
+    const navLinks = document.querySelectorAll('nav ul li a');
+    const offset = document.querySelector('nav').offsetHeight;
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        if (!targetSection) return;
+
+        window.scrollTo({
+          top: targetSection.offsetTop - offset + 1,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Highlight active menu on scroll
+
+    const sections = document.querySelectorAll('main section');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      const scrollPos = window.pageYOffset + offset + 5;
+
+      sections.forEach(section => {
+        if (scrollPos >= section.offsetTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').substring(1) === current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Trigger scroll event on page load to highlight correct nav
+    window.dispatchEvent(new Event('scroll'));
+  </script>
+  
 </body>
 </html>
 
