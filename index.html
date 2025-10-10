@@ -1,11 +1,216 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
-  </body>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portofolio Kreatif</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 960px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    header {
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .tagline {
+      font-style: italic;
+      color: #ccc;
+    }
+
+    nav {
+      background-color: #444;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      color: #fff;
+      padding: 15px 20px;
+      display: block;
+      text-decoration: none;
+    }
+
+    nav ul li a:hover {
+      background-color: #555;
+    }
+
+    section {
+      margin: 40px 0;
+    }
+
+    h2 {
+      color: #444;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #888;
+      display: inline-block;
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+
+    .portfolio-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 15px;
+      width: calc(50% - 10px);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+      border-radius: 4px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #222;
+      color: #fff;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        width: 100%;
+      }
+
+      nav ul {
+        flex-direction: column;
+      }
+
+      nav ul li a {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <img src="https://via.placeholder.com/120" alt="Foto Profil" class="profile-img" />
+      <h1>Nama Lengkap</h1>
+      <p class="tagline">Web Developer | UI/UX Enthusiast</p>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#profil">Profil</a></li>
+      <li><a href="#pendidikan">Pendidikan</a></li>
+      <li><a href="#pengalaman">Pengalaman</a></li>
+      <li><a href="#portofolio">Portofolio</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section id="profil">
+      <h2>Profil</h2>
+      <p>Halo! Saya adalah siswa SMK dengan ketertarikan besar dalam bidang pengembangan web. Saya menyukai tantangan dalam membangun antarmuka interaktif dan responsif menggunakan teknologi modern.</p>
+    </section>
+
+    <section id="pendidikan">
+      <h2>Pendidikan</h2>
+      <ul>
+        <li><strong>SMK Negeri 1 Webdev</strong> (2022 - 2025) – Rekayasa Perangkat Lunak</li>
+        <li><strong>SMPN 2 Coding</strong> (2019 - 2022)</li>
+      </ul>
+    </section>
+
+    <section id="pengalaman">
+      <h2>Pengalaman PKL</h2>
+      <p><strong>PT Kreatif Digital Indonesia</strong> (Juli - September 2024)</p>
+      <ul>
+        <li>Berpartisipasi dalam pembuatan landing page menggunakan HTML, CSS, dan JavaScript</li>
+        <li>Belajar menggunakan Git dan GitHub untuk version control</li>
+        <li>Melakukan testing dan debugging untuk website klien</li>
+      </ul>
+    </section>
+
+    <section id="portofolio">
+      <h2>Portofolio Website</h2>
+      <div class="portfolio-grid">
+        <div class="card">
+          <img src="https://via.placeholder.com/400x250?text=TaskManagerApp" alt="Screenshot Aplikasi 1" />
+          <h3>TaskManagerApp</h3>
+          <p>TaskManagerApp adalah aplikasi manajemen tugas berbasis web untuk memudahkan pengguna mengelola to-do list harian.</p>
+          <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript, Firebase</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/400x250?text=FoodOrder+Web" alt="Screenshot Aplikasi 2" />
+          <h3>FoodOrder Web</h3>
+          <p>FoodOrder Web adalah platform pemesanan makanan online yang mendukung pencarian restoran dan pembayaran digital.</p>
+          <p><strong>Tech Stack:</strong> React, Tailwind CSS, Node.js, MongoDB</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Nama Lengkap. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Smooth scroll for navigation links
+    document.querySelectorAll('nav ul li a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute("href").substring(1);
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          window.scrollTo({
+            top: targetSection.offsetTop - 20,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
 </html>
