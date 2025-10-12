@@ -3,46 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Kreatif</title>
+    <title>Portfolio Web Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
-        /* CSS DARI style.css DIMULAI DI SINI */
+        /* CSS DIMULAI DI SINI (Disesuaikan dengan tema gelap & oranye) */
         :root {
-            --bg-color: #121212; /* Latar belakang sangat gelap */
-            --text-color: #f0f0f0; /* Teks terang */
-            --primary-color: #ff6600; /* Warna aksen oranye */
-            --secondary-bg: #1e1e1e; /* Warna latar belakang elemen sedikit lebih terang */
+            --bg-color: #121212; 
+            --text-color: #f0f0f0; 
+            --primary-color: #ff6600; 
+            --secondary-bg: #1e1e1e; 
+            --card-bg: #282828; 
             --border-radius: 10px;
+            --font-family-primary: 'Poppins', sans-serif; 
         }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: var(--font-family-primary);
         }
 
         body {
             background: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         section {
-            padding: 80px 10%;
+            padding: 100px 10%;
             min-height: 100vh;
-        }
-
-        h1, h2, h3 {
-            color: var(--text-color);
-            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
 
         h2 {
             font-size: 3em;
             text-align: center;
             margin-bottom: 50px;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px; 
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        /* Utilitas */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .section-content {
+            width: 100%;
+            max-width: 1200px;
         }
 
         .btn-primary {
@@ -52,13 +89,16 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background 0.3s;
-            font-weight: bold;
+            transition: background 0.3s ease;
+            font-weight: 600;
             text-transform: uppercase;
+            text-decoration: none; 
+            display: inline-block;
         }
 
         .btn-primary:hover {
             background: #e65c00;
+            transform: translateY(-2px);
         }
 
         /* HEADER/NAVBAR */
@@ -71,383 +111,390 @@
             position: fixed;
             width: 100%;
             z-index: 1000;
-            border-bottom: 1px solid var(--secondary-bg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .logo {
-            font-size: 1.5em;
-            font-weight: bold;
+            font-size: 1.8em;
+            font-weight: 700;
             color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .navbar a {
             color: var(--text-color);
             text-decoration: none;
-            margin-left: 30px;
+            margin-left: 35px;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
+            position: relative;
+            padding-bottom: 5px;
         }
-
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s ease;
+        }
+        .navbar a:hover::after, .navbar a.active::after {
+            width: 100%;
+        }
         .navbar a:hover, .navbar a.active {
             color: var(--primary-color);
         }
+        .menu-icon { display: none; font-size: 1.8em; cursor: pointer; color: var(--primary-color); }
 
-        .menu-icon {
-            display: none; 
-            font-size: 1.5em;
-            cursor: pointer;
-        }
-
-        /* HERO SECTION */
+        /* HERO SECTION (PROFIL) */
         .hero {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding-top: 100px;
+            flex-direction: row;
+            text-align: left;
+            padding-top: 120px;
+            max-width: 1200px;
         }
-
         .hero-content {
-            max-width: 50%;
+            margin-right: 80px;
         }
-
+        .hero-content .greeting {
+            font-size: 1.2em;
+            color: var(--text-color);
+            display: block;
+            margin-bottom: 10px;
+        }
         .hero-content h1 {
-            font-size: 4em;
+            font-size: 4.5em;
             line-height: 1.1;
+            margin-bottom: 5px;
+            color: var(--primary-color); 
         }
-
+        .hero-content h1 span {
+            color: var(--text-color); 
+        }
         .hero-content h2 {
-            font-size: 2em;
-            margin-bottom: 30px;
-            color: var(--primary-color);
-        }
-
-        .hero-image img {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%; 
-            object-fit: cover;
-            border: 5px solid var(--primary-color);
-            /* Bayangan untuk efek glow */
-            box-shadow: 0 0 20px rgba(255, 102, 0, 0.5); 
-        }
-
-        /* SUMMARY/SERVICES SECTION */
-        .summary {
-            background: var(--secondary-bg);
-            text-align: center;
-        }
-
-        .summary-cards {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .card {
-            background: var(--bg-color);
-            padding: 30px;
-            border-radius: var(--border-radius);
-            width: 300px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            border-top: 3px solid var(--primary-color); 
-        }
-
-        .card i {
             font-size: 2.5em;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: var(--text-color); 
+        }
+        .hero-image {
+            position: relative; 
+            border-radius: 50%;
+            overflow: hidden;
+            width: 380px; 
+            height: 380px;
+            background: linear-gradient(45deg, var(--primary-color), #f7931a); 
+            padding: 5px; 
+        }
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 30px rgba(255, 102, 0, 0.6); 
+        }
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+        }
+        .social-links i {
+            font-size: 1.8em;
+            color: var(--text-color);
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-links i:hover {
             color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        /* CARD STYLE UMUM (PENDIDIKAN & PENGALAMAN) */
+        .exp-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            text-align: left;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            border-left: 5px solid var(--primary-color); /* Garis aksen vertikal */
+            transition: transform 0.3s ease;
+        }
+        .exp-card:hover {
+            transform: translateY(-5px);
+        }
+        .exp-card h3 {
+            color: var(--primary-color);
+            font-size: 1.4em;
+            margin-bottom: 5px;
+        }
+        .exp-card h4 {
+            color: var(--text-color);
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        .exp-card .date {
+            color: #ccc;
+            font-size: 0.9em;
+            display: block;
             margin-bottom: 15px;
         }
-
-        /* ABOUT SECTION */
-        .about {
-            display: flex;
-            gap: 50px;
-            align-items: center;
-            text-align: left;
+        .exp-card p {
+            color: #aaa;
+            font-size: 0.95em;
         }
-
-        .about-image img {
-            width: 400px;
-            height: auto;
-            border-radius: var(--border-radius);
-            object-fit: cover;
-        }
-
-        .skill-icons i {
-            font-size: 2.5em;
-            margin-right: 15px;
-            color: var(--primary-color);
-            margin-top: 20px;
+        .experience-section, .education-section {
+            background: var(--secondary-bg);
         }
 
         /* PORTFOLIO SECTION */
         .portfolio {
-            background: var(--secondary-bg);
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsif */
-            gap: 30px;
-        }
-
-        .project-item {
             background: var(--bg-color);
+            text-align: center;
+        }
+        .project-item {
+            background: var(--card-bg);
             border-radius: var(--border-radius);
             overflow: hidden;
             position: relative;
             cursor: pointer;
             border: 1px solid #333;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s ease;
         }
-        
         .project-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 102, 0, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(255, 102, 0, 0.3);
         }
-
         .project-item img {
             width: 100%;
-            height: auto;
+            height: 220px; 
+            object-fit: cover;
             display: block;
+            transition: transform 0.5s ease;
+        }
+        .project-info {
+            padding: 20px;
+            text-align: left;
+        }
+        .project-info h3 {
+            font-size: 1.4em;
+            margin-bottom: 5px;
+        }
+        .project-info .tech-stack {
+            color: #aaa;
+            font-size: 0.8em;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+        .project-info p {
+            color: var(--primary-color);
+            font-size: 1em;
+            font-weight: 500;
         }
 
-        .project-info {
-            padding: 15px;
-        }
 
         /* CONTACT SECTION */
+        .contact {
+            background: var(--secondary-bg);
+            flex-direction: column;
+        }
         .contact-form {
-            max-width: 700px;
-            margin: 0 auto;
+            max-width: 800px;
+            width: 100%;
             display: flex;
             flex-direction: column;
             gap: 20px;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border-top: 4px solid var(--primary-color);
         }
-
         .form-group {
             display: flex;
             gap: 20px;
         }
-
         .form-group input, .contact-form input, .contact-form textarea {
             width: 100%;
             padding: 15px;
             background: var(--secondary-bg);
-            border: 1px solid #333;
+            border: 1px solid #3a3a3a; 
             border-radius: 5px;
             color: var(--text-color);
-            /* Placeholder styling */
-            opacity: 0.7; 
+            font-size: 1em;
         }
-
         .contact-form textarea {
-            resize: vertical;
-            min-height: 150px;
+            min-height: 180px;
         }
 
         /* FOOTER */
         .footer {
             text-align: center;
-            padding: 30px 10%;
-            border-top: 1px solid var(--secondary-bg);
+            padding: 40px 10%;
+            border-top: 1px solid #333;
+            background: var(--bg-color);
+            color: #aaa;
+            font-size: 0.9em;
         }
 
-        /* Media Query untuk Mobile/Responsif */
-        @media (max-width: 768px) {
+        /* Media Queries */
+        @media (max-width: 992px) {
             .navbar {
-                position: absolute;
-                top: 75px;
-                left: 0;
-                width: 100%;
-                background: var(--secondary-bg);
-                flex-direction: column;
-                display: none; /* Sembunyikan secara default */
-                padding: 20px 0;
+                left: -100%;
+                width: 70%;
             }
-
             .navbar.active {
-                display: flex;
+                left: 0;
             }
-
-            .navbar a {
-                margin: 10px 0;
-                text-align: center;
-            }
-
-            .menu-icon {
-                display: block;
-            }
-            
-            .hero, .about {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .hero-content {
-                max-width: 100%;
-                margin-bottom: 40px;
-            }
-
-            .about-image {
-                order: 1; /* Pindah gambar ke atas di mobile */
-            }
-
-            .about-content {
-                order: 2;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-group {
-                flex-direction: column;
-            }
+            .menu-icon { display: block; }
+            .hero { flex-direction: column; text-align: center; }
+            .hero-content { margin: 0 0 40px 0; }
+            .hero-image { width: 300px; height: 300px; }
+            .social-links { justify-content: center; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .form-group { flex-direction: column; }
+            .exp-card { border-left: none; border-top: 5px solid var(--primary-color); }
         }
-        /* CSS DARI style.css SELESAI DI SINI */
     </style>
 </head>
 <body>
 
     <header class="header">
-        <div class="logo">URDZ</div>
+        <div class="logo">BS.DEV</div>
         <nav class="navbar">
             <a href="#home" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#contact">Contact</a>
+            <a href="#education">Pendidikan</a>
+            <a href="#experience">Pengalaman</a>
+            <a href="#portfolio">Portofolio</a>
+            <a href="#contact">Kontak</a>
         </nav>
         <div class="menu-icon"><i class="fas fa-bars"></i></div>
     </header>
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <span class="greeting">Hello, I'm</span>
-            <h1>JOHN DOE</h1>
-            <h2>UI/UX designer</h2>
-            <p>I craft user-centric digital products that blend stunning aesthetics with seamless functionality to deliver exceptional experiences.</p>
+            <span class="greeting">Hello, Saya</span>
+            <h1><span>BUDI</span> SETIAWAN</h1>
+            <h2>Web Developer | Intern</h2>
+            <p>Mahasiswa semester akhir yang bersemangat dalam pengembangan web, fokus pada pembuatan antarmuka pengguna yang bersih dan responsif menggunakan teknologi modern. Mencari kesempatan magang untuk mengaplikasikan ilmu dalam lingkungan profesional.</p>
             <div class="social-links">
-                <i class="fab fa-behance" style="color: var(--primary-color);"></i>
-                <i class="fab fa-dribbble" style="color: var(--primary-color);"></i>
+                <i class="fab fa-github"></i>
+                <i class="fab fa-linkedin-in"></i>
+                <i class="fas fa-envelope"></i>
             </div>
+            <a href="#portfolio" class="btn-primary" style="margin-top: 30px;">Lihat Proyek Saya</a>
         </div>
         <div class="hero-image">
-            <img src="https://via.placeholder.com/300/ff6600/121212?text=PROFILE+PIC" alt="Designer Profile Picture">
+            <img src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Foto Profil Budi Setiawan">
         </div>
     </section>
 
-    <section class="summary" id="services">
-        <h2>Services</h2>
-        <div class="summary-cards">
-            <div class="card">
-                <i class="fas fa-laptop-code"></i>
-                <h3>Web Design</h3>
-                <p>Creating responsive and high-converting website interfaces.</p>
+    <section class="education-section" id="education">
+        <h2>Pendidikan</h2>
+        <div class="grid-2 section-content">
+            <div class="exp-card">
+                <h3>S1 Teknik Informatika</h3>
+                <h4>Universitas Teknologi Jakarta</h4>
+                <span class="date">Agustus 2021 – Sekarang (Semester 5)</span>
+                <p>IPK: 3.85/4.00. Fokus pada mata kuliah Struktur Data, Basis Data Lanjut, dan Pengembangan Aplikasi Web. Aktif sebagai Asisten Dosen untuk mata kuliah Pemrograman Dasar.</p>
             </div>
-            <div class="card">
-                <i class="fas fa-mobile-alt"></i>
-                <h3>App Design</h3>
-                <p>Developing intuitive and engaging mobile app designs (iOS & Android).</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-lightbulb"></i>
-                <h3>UX Audit</h3>
-                <p>Analyzing and improving existing user flows and usability.</p>
+            <div class="exp-card">
+                <h3>Pelatihan Intensif Full-Stack</h3>
+                <h4>CodeCamp Academy</h4>
+                <span class="date">Maret 2023 – Juli 2023</span>
+                <p>Menyelesaikan program boot camp selama 5 bulan yang mencakup HTML, CSS, JavaScript (React), Node.js, Express, dan PostgreSQL. Mengerjakan 3 proyek akhir berskala menengah.</p>
             </div>
         </div>
     </section>
 
-    <section class="about" id="about">
-        <div class="about-image">
-            <img src="https://via.placeholder.com/400/1e1e1e/ff6600?text=ABOUT+IMAGE" alt="Designer Image">
-        </div>
-        <div class="about-content">
-            <h2>About Me</h2>
-            <p>Saya adalah desainer UI/UX berpengalaman yang berfokus pada pendekatan desain yang didorong oleh data. Dengan lebih dari 5 tahun di industri ini, saya telah membantu berbagai startup dan perusahaan besar mengubah ide menjadi produk digital yang sukses. Keahlian saya mencakup mulai dari riset pengguna, wireframing, prototyping, hingga desain visual akhir.</p>
-            <button class="btn-primary">Download CV</button>
-            <div class="skill-icons">
-                <i class="fab fa-figma"></i>
-                <i class="fab fa-sketch"></i>
-                <i class="fas fa-pencil-ruler"></i>
-                <i class="fab fa-adobe"></i>
+    <section class="experience-section" id="experience">
+        <h2>Pengalaman</h2>
+        <div class="grid-2 section-content">
+            <div class="exp-card">
+                <h3>Asisten Dosen Pemrograman Dasar</h3>
+                <h4>Fakultas Teknik, Universitas Teknologi Jakarta</h4>
+                <span class="date">September 2023 – Januari 2024</span>
+                <p>Membantu 50+ mahasiswa memahami konsep dasar HTML, CSS, dan logika pemrograman (JavaScript). Merancang dan menilai tugas praktik mingguan, serta memberikan sesi mentoring pribadi.</p>
+            </div>
+            <div class="exp-card">
+                <h3>Freelance Web Designer (Kontrak)</h3>
+                <h4>UMKM Toko Kopi Jaya</h4>
+                <span class="date">Juni 2023 – Juli 2023</span>
+                <p>Merancang dan mengimplementasikan landing page promosi menggunakan HTML dan Bootstrap. Meningkatkan konversi pendaftaran newsletter sebesar 25% melalui desain yang responsif dan optimasi kecepatan.</p>
             </div>
         </div>
     </section>
 
     <section class="portfolio" id="portfolio">
-        <h2>Portfolio</h2>
-        <div class="portfolio-grid">
+        <h2>Portofolio Pembuatan Website</h2>
+        <div class="grid-3 section-content">
+            
             <div class="project-item">
-                <img src="https://via.placeholder.com/400x300/333/ff6600?text=Project+1" alt="Project 1 Thumbnail">
+                <img src="https://placehold.co/400x220/ff6600/121212/png?text=SCREENSHOT+E-LEARNING" alt="Screenshot E-Learning Platform">
                 <div class="project-info">
-                    <h3>Mobile Banking Redesign</h3>
-                    <p>Financial App UX/UI</p>
+                    <h3>Aplikasi: E-Learning Platform "Skola"</h3>
+                    <p>Web Developer (Front-End)</p>
+                    <span class="tech-stack">**Tech Stack:** React.js, Tailwind CSS, API REST Dummy (JSON Server)</span>
                 </div>
             </div>
+
             <div class="project-item">
-                <img src="https://via.placeholder.com/400x300/333/ff6600?text=Project+2" alt="Project 2 Thumbnail">
+                <img src="https://placehold.co/400x220/121212/ff6600/png?text=SCREENSHOT+PROJECT+MANAGEMENT" alt="Screenshot Project Management App">
                 <div class="project-info">
-                    <h3>E-Commerce Dashboard</h3>
-                    <p>Web UI Design</p>
+                    <h3>Aplikasi: Project Management Tool "TaskFlow"</h3>
+                    <p>Full-Stack Developer (MERN Stack)</p>
+                    <span class="tech-stack">**Tech Stack:** MongoDB, Express.js, Node.js, Handlebars (Templating)</span>
                 </div>
             </div>
+
             <div class="project-item">
-                <img src="https://via.placeholder.com/400x300/333/ff6600?text=Project+3" alt="Project 3 Thumbnail">
+                <img src="https://placehold.co/400x220/3a3a3a/f0f0f0/png?text=SCREENSHOT+PORTFOLIO+WEBSITE" alt="Screenshot Portfolio Website">
                 <div class="project-info">
-                    <h3>SaaS Platform</h3>
-                    <p>Enterprise UX</p>
-                </div>
-            </div>
-            <div class="project-item">
-                <img src="https://via.placeholder.com/400x300/333/ff6600?text=Project+4" alt="Project 4 Thumbnail">
-                <div class="project-info">
-                    <h3>Project Title</h3>
-                    <p>UI/UX Design</p>
+                    <h3>Aplikasi: Portfolio Website Pribadi</h3>
+                    <p>Front-End Development</p>
+                    <span class="tech-stack">**Tech Stack:** HTML5, CSS3, JavaScript Murni (Vanilla JS)</span>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <section class="contact" id="contact">
-        <h2>Contact Me</h2>
+        <h2>Tertarik Merekrut Saya?</h2>
+        <p style="margin-bottom: 30px; color: #ccc;">Saya sangat antusias untuk bergabung dengan tim Anda sebagai Intern/Magang. Silakan hubungi saya melalui formulir di bawah ini.</p>
         <form class="contact-form">
             <div class="form-group">
-                <input type="text" placeholder="Your Name">
-                <input type="email" placeholder="Your Email">
+                <input type="text" placeholder="Nama Lengkap">
+                <input type="email" placeholder="Email Anda">
             </div>
-            <input type="text" placeholder="Subject">
-            <textarea placeholder="Your Message"></textarea>
-            <button type="submit" class="btn-primary">Send Message</button>
+            <input type="text" placeholder="Subjek (Misalnya: Peluang Magang Web Dev)">
+            <textarea placeholder="Pesan Anda"></textarea>
+            <button type="submit" class="btn-primary">Kirim Pesan</button>
         </form>
     </section>
 
     <footer class="footer">
         <div class="footer-social">
-            <i class="fab fa-instagram" style="margin: 0 10px; color: var(--text-color);"></i>
-            <i class="fab fa-linkedin-in" style="margin: 0 10px; color: var(--text-color);"></i>
+            <i class="fab fa-github"></i>
+            <i class="fab fa-linkedin-in"></i>
+            <i class="fas fa-envelope"></i>
         </div>
-        <p>&copy; 2025 John Doe. All rights reserved.</p>
+        <p>&copy; 2025 Budi Setiawan. Dibuat dengan cinta dan kode.</p>
     </footer>
 
     <script>
-        // JAVASCRIPT DARI script.js DIMULAI DI SINI
+        // JAVASCRIPT DIMULAI DI SINI
         document.addEventListener('DOMContentLoaded', function() {
             const menuIcon = document.querySelector('.menu-icon');
             const navbar = document.querySelector('.navbar');
 
-            // 1. Toggle Menu Icon/Navbar (untuk tampilan mobile)
             menuIcon.addEventListener('click', () => {
                 navbar.classList.toggle('active');
-                // Mengubah ikon dari hamburger ke close dan sebaliknya
                 const icon = menuIcon.querySelector('i');
                 icon.classList.toggle('fa-bars');
                 icon.classList.toggle('fa-times');
             });
 
-            // 2. Menutup menu saat link diklik (untuk tampilan mobile)
             document.querySelectorAll('.navbar a').forEach(link => {
                 link.addEventListener('click', () => {
                     if (navbar.classList.contains('active')) {
@@ -459,7 +506,7 @@
                 });
             });
 
-            // 3. Efek aktif pada navigasi saat menggulir (scroll)
+            // Efek aktif pada navigasi saat menggulir (scroll)
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.navbar a');
 
@@ -468,22 +515,21 @@
                 
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
-                    // Tentukan area aktif (misalnya, saat 150px sebelum bagian dimulai)
-                    if (pageYOffset >= sectionTop - 150) { 
+                    // Tentukan area aktif (misalnya, saat 30% dari bagian terlihat)
+                    if (window.scrollY >= sectionTop - 150) { 
                         current = section.getAttribute('id');
                     }
                 });
 
                 navLinks.forEach(a => {
                     a.classList.remove('active');
-                    // Cek jika href link mengandung ID bagian saat ini
                     if (a.getAttribute('href').includes(current)) {
                         a.classList.add('active');
                     }
                 });
             });
         });
-        // JAVASCRIPT DARI script.js SELESAI DI SINI
+        // JAVASCRIPT SELESAI DI SINI
     </script>
 </body>
 </html>
