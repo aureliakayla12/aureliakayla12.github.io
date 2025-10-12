@@ -194,4 +194,436 @@
             z-index: 1;
         }
 
-        .timeline-
+        .timeline-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .subtitle {
+            font-style: italic;
+            color: #a4afb7;
+            margin-bottom: 10px;
+        }
+
+        /* Portofolio */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Catatan: Ganti 'url()' dengan nama file gambar Anda jika Anda menggunakannya. */
+        .project-screenshot {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project-info {
+            padding: 15px;
+        }
+
+        .project-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .tech-stack {
+            margin-top: 10px;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin: 5px 5px 5px 0;
+        }
+
+        .detail-button {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .detail-button:hover {
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+        }
+
+        /* Modal (Interaktif JS) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; 
+            z-index: 2000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.8); 
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: var(--secondary-color);
+            margin: 5% auto; 
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 700px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            position: relative;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        .modal-img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border: 1px solid var(--primary-color);
+        }
+
+        .close-button {
+            color: var(--text-color);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .modal-content h3, .modal-content h4 {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        #kontak {
+            background-color: var(--secondary-color);
+            text-align: center;
+            padding: 40px 10%;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .footer-content h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a i {
+            margin-right: 5px;
+            color: var(--primary-color);
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #a4afb7;
+        }
+
+        /* Media Queries untuk Responsif */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 60%;
+                height: 100vh;
+                background-color: var(--secondary-color);
+                flex-direction: column;
+                align-items: center;
+                transform: translateX(100%); 
+                transition: transform 0.5s ease-in-out;
+                padding-top: 6rem;
+            }
+
+            .nav-links li {
+                opacity: 0;
+                margin: 15px 0;
+            }
+
+            .nav-links.nav-active {
+                transform: translateX(0); 
+            }
+
+            .nav-links.nav-active li {
+                opacity: 1;
+                transition: opacity 0.5s ease-in 0.3s;
+            }
+
+            .burger {
+                display: block;
+                z-index: 1001;
+            }
+            
+            /* Burger Animation */
+            .burger.toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
+            .burger.toggle .line2 { opacity: 0; }
+            .burger.toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
+            @keyframes navLinkFade { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo">KREATIVITAS.</div>
+        <ul class="nav-links">
+            <li><a href="#profil" class="nav-link">Profil</a></li>
+            <li><a href="#pendidikan" class="nav-link">Pendidikan</a></li>
+            <li><a href="#pengalaman" class="nav-link">Pengalaman</a></li>
+            <li><a href="#portofolio" class="nav-link">Portofolio</a></li>
+            <li><a href="#kontak" class="nav-link">Kontak</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <header id="profil" class="hero-section">
+        <div class="hero-content">
+            <img src="profile.jpg" alt="Foto Profil Anda" class="profile-img">
+            <h1>Halo, Saya **[Nama Lengkap Anda]** 👋</h1>
+            <p class="role-text">Web Developer | Desainer UI/UX | **Internship Enthusiast**</p>
+            <p>Seorang individu kreatif yang bersemangat dalam menggabungkan desain dan fungsionalitas untuk menciptakan pengalaman digital yang memukau dan efektif.</p>
+            <a href="#portofolio" class="cta-button">Lihat Karya Saya</a>
+        </div>
+    </header>
+
+    <section id="pendidikan" class="section">
+        <h2>🎓 Pendidikan</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>[Nama Universitas/Institusi]</h3>
+                <p class="subtitle">[Nama Jurusan], [Tahun Masuk] - [Tahun Lulus]</p>
+                <p>Fokus pada pengembangan aplikasi web dan interaksi pengguna. Aktif di Unit Kegiatan Mahasiswa (UKM) bidang teknologi.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pengalaman" class="section">
+        <h2>💼 Pengalaman</h2>
+        <div class="timeline">
+            <div class="timeline-item experience-card">
+                <h3>**Magang** - Junior Web Developer</h3>
+                <p class="subtitle">**[Nama Perusahaan Tempat Magang]** | [Bulan/Tahun] - [Bulan/Tahun]</p>
+                <ul>
+                    <li>Mengembangkan modul *dashboard* admin menggunakan **React.js** dan **Node.js**.</li>
+                    <li>Berkontribusi dalam optimasi performa *loading* halaman hingga **20%**.</li>
+                    <li>Berpartisipasi dalam sesi *code review* dan implementasi fitur baru.</li>
+                </ul>
+            </div>
+            <div class="timeline-item experience-card">
+                <h3>Freelance - Web Designer</h3>
+                <p class="subtitle">Klien Individu | [Tahun]</p>
+                <ul>
+                    <li>Mendesain dan mengimplementasikan 3+ website bisnis kecil menggunakan **WordPress** dan custom CSS.</li>
+                    <li>Melakukan riset tren desain terbaru untuk memastikan tampilan modern.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="portofolio" class="section portfolio-section">
+        <h2>🛠️ Portofolio Pembuatan Website</h2>
+        <div class="portfolio-grid">
+            
+            <div class="portfolio-item" data-tech="HTML, CSS, JS, Vue.js">
+                <img src="project-1-screenshoot.png" alt="Screenshot Aplikasi E-Commerce Fiktif" class="project-screenshot">
+                <div class="project-info">
+                    <h3>Aplikasi E-Commerce Fiktif</h3>
+                    <p>Membuat *mockup* e-commerce interaktif dengan fitur filter produk dan keranjang belanja dinamis.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">SCSS</span>
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">API RESTful</span>
+                    </div>
+                    <button class="detail-button" onclick="showDetails('project1-details')">Lihat Detail</button>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-tech="React, Tailwind CSS, Firebase">
+                <img src="project-2-screenshoot.png" alt="Screenshot Platform Manajemen Tugas" class="project-screenshot">
+                <div class="project-info">
+                    <h3>Platform Manajemen Tugas (To-Do App)</h3>
+                    <p>Aplikasi web untuk mengelola tugas harian, lengkap dengan fitur otentikasi dan penyimpanan data *real-time*.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Redux</span>
+                    </div>
+                    <button class="detail-button" onclick="showDetails('project2-details')">Lihat Detail</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="project1-details" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('project1-details')">&times;</span>
+            <h3>Aplikasi E-Commerce Fiktif</h3>
+            <img src="project-1-screenshoot.png" alt="Screenshot Aplikasi E-Commerce Fiktif" class="modal-img">
+            <p>Aplikasi ini dikembangkan sebagai studi kasus untuk menguji kemampuan Front-End Development. Fokus utama adalah pada **kinerja kecepatan** dan **pengalaman belanja yang mulus**.</p>
+            <h4>Tech Stack:</h4>
+            <p>HTML5, SCSS (untuk styling yang efisien), Vue.js (untuk reaktivitas data), dan simulasi koneksi dengan API RESTful.</p>
+            <p><a href="#" target="_blank">Kunjungi Live Demo (Fiktif)</a> | <a href="#" target="_blank">Source Code (Fiktif)</a></p>
+        </div>
+    </div>
+
+    <div id="project2-details" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('project2-details')">&times;</span>
+            <h3>Platform Manajemen Tugas (To-Do App)</h3>
+            <img src="project-2-screenshoot.png" alt="Screenshot Platform Manajemen Tugas" class="modal-img">
+            <p>Proyek ini menunjukkan implementasi **full-stack** sederhana. Pengguna dapat mendaftar, login, dan mengelola daftar tugas mereka yang tersimpan secara *real-time* di cloud.</p>
+            <h4>Tech Stack:</h4>
+            <p>React (sebagai library UI), Tailwind CSS (untuk styling utility-first), Firebase (untuk Backend as a Service dan otentikasi), Redux (untuk manajemen state).</p>
+            <p><a href="#" target="_blank">Kunjungi Live Demo (Fiktif)</a> | <a href="#" target="_blank">Source Code (Fiktif)</a></p>
+        </div>
+    </div>
+
+    <footer id="kontak">
+        <div class="footer-content">
+            <h2>Hubungi Saya</h2>
+            <p>Tertarik bekerja sama? Silakan hubungi saya melalui:</p>
+            <div class="social-links">
+                <a href="mailto:emailanda@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                <a href="https://linkedin.com/in/namaanda" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/namaanda" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+            <p class="copyright">&copy; 2025 [Nama Anda]. Dibuat dengan ❤️</p>
+        </div>
+    </footer>
+
+    <script>
+        // Interaksi Navigasi Mobile (Hamburger Menu)
+        const navSlide = () => {
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('.nav-links');
+            const navLinks = document.querySelectorAll('.nav-links li');
+
+            burger.addEventListener('click', () => {
+                // Toggle Nav
+                nav.classList.toggle('nav-active');
+
+                // Animate Links
+                navLinks.forEach((link, index) => {
+                    if (link.style.animation) {
+                        link.style.animation = '';
+                    } else {
+                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                    }
+                });
+
+                // Burger Animation
+                burger.classList.toggle('toggle');
+            });
+
+            // Tutup nav saat link diklik (untuk smooth scroll)
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (nav.classList.contains('nav-active')) {
+                        nav.classList.remove('nav-active');
+                        burger.classList.remove('toggle');
+                        navLinks.forEach(l => l.style.animation = '');
+                    }
+                });
+            });
+        }
+
+        // Interaksi Modal Portofolio
+        function showDetails(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'block';
+                // Nonaktifkan scroll body saat modal terbuka
+                document.body.style.overflow = 'hidden'; 
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'none';
+                // Aktifkan kembali scroll body
+                document.body.style.overflow = 'auto'; 
+            }
+        }
+
+        // Tutup modal jika user mengklik di luar area modal
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto'; 
+            }
+        }
+
+        // Smooth Scroll untuk Navigasi
+        document.querySelectorAll('a.nav-link[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+
+        // Panggil fungsi-fungsi setelah DOM dimuat
+        window.onload = () => {
+            navSlide();
+        };
+    </script>
+</body>
+</html>
