@@ -3,250 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nama Anda - Portofolio Kreatif</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Nama Anda - Portofolio Digital Kreatif</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
         /* =======================================
-           SECTION: CSS (STYLE)
+           SECTION: CSS (ESTETIKA FUTURISTIK)
            ======================================= */
         
-        /* RESET DASAR */
+        /* Variabel Warna */
+        :root {
+            --primary-color: #00e5ff; /* Cyan Terang (Neon) */
+            --secondary-color: #ff007f; /* Magenta (Aksen Kuat) */
+            --text-color: #e0f7fa; /* Putih Kebiruan */
+            --bg-color: #0d0d1e; /* Biru Sangat Gelap (Hampir Hitam) */
+            --card-bg: #1c1c38; /* Latar Belakang Kartu */
+            --line-color: rgba(0, 229, 255, 0.3); /* Garis Transparan Neon */
+            --font-main: 'Rajdhani', sans-serif;
+            --font-content: 'Montserrat', sans-serif;
+        }
+
+        /* RESET & BASE */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --primary-color: #00bcd4; /* Biru Cyan yang menarik */
-            --secondary-color: #ff9800; /* Oranye untuk penekanan */
-            --text-color: #f5f5f5; /* Putih terang untuk teks */
-            --bg-color: #1a1a2e; /* Biru gelap untuk latar belakang utama (Dark Mode) */
-            --card-bg: #2c2c44; /* Latar belakang kartu/konten */
-            --dark-bg: #121221; /* Latar belakang bagian yang lebih gelap */
-            --font-family: 'Poppins', sans-serif;
-        }
-
         body {
-            font-family: var(--font-family);
+            font-family: var(--font-content);
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         a {
             color: var(--primary-color);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.3s, opacity 0.3s;
         }
 
         a:hover {
             color: var(--secondary-color);
+            opacity: 0.8;
         }
 
         /* HEADER / NAVBAR */
         #navbar {
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 5%;
-            background-color: rgba(26, 26, 46, 0.95); /* Sedikit transparan */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            background-color: rgba(13, 13, 30, 0.9);
+            border-bottom: 1px solid var(--line-color);
+            backdrop-filter: blur(5px);
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-family: var(--font-main);
+            font-size: 2.2rem;
             font-weight: 700;
-        }
-
-        .logo span {
-            color: var(--primary-color);
-        }
-
-        .nav-links a {
-            margin-left: 1.5rem;
-            font-weight: 600;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
-        /* Menu Toggle (untuk Mobile) */
-        .menu-toggle {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 30px;
-            height: 25px;
+        .logo span {
+            color: var(--secondary-color);
         }
 
-        .bar {
-            display: block;
-            width: 100%;
-            height: 3px;
-            background-color: var(--text-color);
-            border-radius: 10px;
-            transition: all 0.3s linear;
+        .nav-links a {
+            margin-left: 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 5px 0;
+            position: relative;
         }
         
-        .menu-toggle.is-active .bar:nth-child(2) {
-            opacity: 0;
+        /* Efek Hover Garis Bawah Neon */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease, left 0.3s ease;
         }
-
-        .menu-toggle.is-active .bar:nth-child(1) {
-            transform: translateY(11px) rotate(45deg);
-        }
-
-        .menu-toggle.is-active .bar:nth-child(3) {
-            transform: translateY(-11px) rotate(-45deg);
+        
+        .nav-links a:hover::after {
+            width: 100%;
+            left: 0;
         }
 
         /* Bagian Umum */
         .content-section {
-            padding: 4rem 5%;
-            min-height: 80vh;
-        }
-
-        .content-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2.5rem;
-            text-align: center;
-            color: var(--primary-color);
-            position: relative;
-        }
-
-        .content-section h2::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--secondary-color);
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        .dark-bg {
-            background-color: var(--dark-bg);
-        }
-
-        /* Bagian Hero (Profil) */
-        .hero-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             padding: 6rem 5%;
-            min-height: 90vh;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border-bottom: 1px dashed var(--line-color);
+        }
+        
+        .section-header {
+            font-family: var(--font-main);
+            font-size: 3.5rem;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+        }
+
+        /* HERO SECTION */
+        #profil {
+            flex-direction: row;
+            text-align: left;
+            padding-top: 100px;
         }
 
         .hero-content {
             max-width: 60%;
-            animation: fadeIn 1s ease-out;
+            padding-right: 5%;
         }
 
+        /* Efek Glitch pada Headline */
         .headline {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-family: var(--font-main);
+            font-size: 4.5rem;
+            margin-bottom: 0.5rem;
             font-weight: 700;
+            color: var(--text-color);
+            text-transform: uppercase;
+            position: relative;
+            animation: text-shadow 1.5s infinite alternate;
+        }
+        
+        /* Animasi Text Shadow (Glitch Halus) */
+        @keyframes text-shadow {
+            0% { text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--secondary-color); }
+            100% { text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--secondary-color); }
         }
 
         .subhead {
-            font-size: 1.5rem;
-            color: #b5b5c7;
-            margin-bottom: 2rem;
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 2.5rem;
+            font-family: var(--font-main);
+            letter-spacing: 1px;
         }
 
         .cta-button {
-            display: inline-block;
-            padding: 0.8rem 2rem;
             background-color: var(--secondary-color);
             color: var(--bg-color);
-            border-radius: 50px;
+            padding: 12px 30px;
+            border-radius: 5px;
             font-weight: 700;
-            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.7);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .cta-button:hover {
-            background-color: #ffb74d;
-            transform: translateY(-3px);
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 0, 127, 1);
+            background-color: #ff3399;
         }
 
         .hero-image {
             max-width: 35%;
-            text-align: center;
         }
 
+        /* Animasi Hologram Bingkai Gambar */
         .profile-pic {
             width: 100%;
+            max-width: 350px;
             height: auto;
-            max-width: 300px;
-            border-radius: 50%;
-            border: 5px solid var(--primary-color);
-            box-shadow: 0 0 20px rgba(0, 188, 212, 0.5);
-            transition: transform 0.5s;
+            border-radius: 10px;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.7);
+            filter: grayscale(30%);
+            transition: filter 0.5s, box-shadow 0.5s;
         }
 
         .profile-pic:hover {
-            transform: scale(1.05) rotate(2deg);
+            filter: grayscale(0%);
+            box-shadow: 0 0 40px var(--primary-color);
         }
-
 
         /* TIMELINE (Pendidikan & Pengalaman) */
-        .timeline {
-            position: relative;
+        .timeline-container {
+            width: 100%;
             max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem 0;
+            position: relative;
         }
 
-        .timeline::after {
+        .timeline-container::before {
             content: '';
             position: absolute;
-            width: 4px;
-            background-color: var(--card-bg);
+            width: 2px;
+            background-color: var(--primary-color);
+            left: 50%;
             top: 0;
             bottom: 0;
-            left: 50%;
-            margin-left: -2px;
+            margin-left: -1px;
+            box-shadow: 0 0 10px var(--primary-color);
         }
 
         .timeline-item {
             padding: 10px 40px;
             position: relative;
             width: 50%;
+            margin-bottom: 40px;
             background-color: var(--card-bg);
-            margin: 1rem 0;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s;
+            border-radius: 10px;
+            border: 1px solid var(--line-color);
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+            opacity: 0; /* Untuk animasi JS */
+            transform: translateX(50px); /* Untuk animasi JS */
         }
+        
+        .timeline-item.animate-left { transform: translateX(-50px); }
 
-        .timeline-item:hover {
-            transform: scale(1.02);
-        }
+        .timeline-item:nth-child(odd) { left: 0; }
+        .timeline-item:nth-child(even) { left: 50%; }
 
-        /* Posisi Item Timeline */
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-
-        /* Titik di Garis Timeline */
         .timeline-item::after {
             content: '';
             position: absolute;
-            width: 15px;
-            height: 15px;
-            right: -7px;
-            background-color: var(--primary-color);
-            border: 3px solid var(--bg-color);
+            width: 16px;
+            height: 16px;
+            right: -10px;
+            background-color: var(--bg-color);
+            border: 3px solid var(--secondary-color);
             top: 15px;
             border-radius: 50%;
             z-index: 1;
@@ -257,92 +255,94 @@
         }
 
         .timeline-item h3 {
-            color: var(--primary-color);
-            font-weight: 600;
+            color: var(--secondary-color);
+            font-family: var(--font-main);
+            font-weight: 700;
         }
 
         .timeline-item .date {
-            color: var(--secondary-color);
+            color: var(--primary-color);
             font-style: italic;
             margin-bottom: 0.5rem;
         }
 
-
         /* PORTOFOLIO */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            width: 100%;
             max-width: 1200px;
-            margin: 0 auto;
         }
 
         .project-card {
             background-color: var(--card-bg);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--line-color);
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.1);
+            transition: transform 0.4s, box-shadow 0.4s;
             opacity: 0; /* Untuk animasi JS */
-            transform: translateY(50px); /* Untuk animasi JS */
+            transform: translateY(30px); /* Untuk animasi JS */
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 188, 212, 0.3);
+            transform: translateY(-15px);
+            box-shadow: 0 10px 30px rgba(255, 0, 127, 0.4);
+            border: 1px solid var(--secondary-color);
         }
 
         .project-card img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
             display: block;
-            transition: opacity 0.3s;
+            border-bottom: 2px solid var(--primary-color);
         }
 
-        .project-card:hover img {
-            opacity: 0.8;
+        .project-details {
+            padding: 20px;
         }
 
         .project-card h3 {
-            padding: 15px 15px 5px;
             color: var(--primary-color);
-        }
-
-        .project-card p {
-            padding: 0 15px 10px;
-            font-size: 0.95rem;
+            font-family: var(--font-main);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
         }
 
         .tech-stack {
-            padding: 0 15px 15px;
+            margin-top: 10px;
             display: flex;
             flex-wrap: wrap;
         }
 
         .tech-tag {
-            background-color: var(--primary-color);
+            background-color: var(--secondary-color);
             color: var(--bg-color);
-            padding: 4px 8px;
-            border-radius: 5px;
+            padding: 4px 10px;
+            border-radius: 20px;
             font-size: 0.8rem;
-            margin-right: 5px;
-            margin-bottom: 5px;
+            margin-right: 8px;
+            margin-bottom: 8px;
             font-weight: 600;
+            text-transform: uppercase;
         }
 
         .project-link {
             display: block;
             text-align: center;
-            padding: 12px;
-            background-color: var(--secondary-color);
-            color: var(--bg-color);
-            font-weight: 700;
-            transition: background-color 0.3s;
+            margin-top: 15px;
+            padding: 10px;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .project-link:hover {
-            background-color: #ffb74d;
+            background-color: var(--primary-color);
             color: var(--bg-color);
         }
 
@@ -350,32 +350,51 @@
         footer {
             padding: 2rem 5%;
             text-align: center;
-            background-color: var(--dark-bg);
-            border-top: 1px solid var(--card-bg);
+            background-color: var(--bg-color);
+            border-top: 1px solid var(--secondary-color);
         }
 
         .social-links a {
-            margin: 0 10px;
-            font-size: 1.5rem;
-            color: var(--text-color);
+            margin: 0 15px;
+            font-size: 1.8rem;
+            color: var(--primary-color);
         }
-
-        /* Animasi CSS Dasar */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+        
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 900px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            
+            .hero-content, .hero-image {
+                max-width: 100%;
+                padding: 0;
             }
-        }
 
+            .hero-image {
+                margin-top: 3rem;
+            }
 
-        /* RESPONSIVE DESIGN - MEDIA QUERIES */
-        @media (max-width: 768px) {
-            /* Navbar */
+            .headline {
+                font-size: 3rem;
+            }
+
+            /* Timeline Mobile */
+            .timeline-container::before {
+                left: 20px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 60px;
+                padding-right: 10px;
+                left: 0 !important;
+            }
+            .timeline-item::after {
+                left: 10px !important;
+            }
+
+            /* Navbar Mobile */
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -383,10 +402,9 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background-color: var(--bg-color);
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+                background-color: var(--card-bg);
             }
-
+            
             .nav-links.active {
                 display: flex;
             }
@@ -394,52 +412,26 @@
             .nav-links a {
                 margin: 0;
                 padding: 1rem 5%;
-                border-bottom: 1px solid var(--card-bg);
+                border-bottom: 1px solid var(--line-color);
                 text-align: center;
             }
 
             .menu-toggle {
                 display: flex;
-            }
-
-            /* Hero Section */
-            .hero-section {
+                cursor: pointer;
                 flex-direction: column;
-                text-align: center;
-                padding-top: 4rem;
+                justify-content: space-around;
+                width: 30px;
+                height: 25px;
             }
 
-            .hero-content {
-                max-width: 100%;
-                margin-bottom: 3rem;
-            }
-
-            .headline {
-                font-size: 2.5rem;
-            }
-
-            .subhead {
-                font-size: 1.2rem;
-            }
-
-            .hero-image {
-                max-width: 50%;
-            }
-
-            /* Timeline */
-            .timeline::after {
-                left: 31px; /* Pindahkan garis ke kiri */
-            }
-
-            .timeline-item {
+            .bar {
+                display: block;
                 width: 100%;
-                padding-left: 60px;
-                padding-right: 15px;
-                left: 0 !important; /* Semua item di kiri */
-            }
-
-            .timeline-item::after {
-                left: 15px !important; /* Titik di kiri */
+                height: 3px;
+                background-color: var(--text-color);
+                border-radius: 10px;
+                transition: all 0.3s linear;
             }
         }
     </style>
@@ -447,7 +439,7 @@
 <body>
 
     <header id="navbar">
-        <div class="logo">Nama<span>Anda</span></div>
+        <div class="logo">Nama<span>Dev</span></div>
         <nav class="nav-links">
             <a href="#profil">Profil</a>
             <a href="#pendidikan">Edukasi</a>
@@ -462,77 +454,82 @@
     </header>
 
     <main>
-        <section id="profil" class="hero-section">
+        <section id="profil" class="content-section">
             <div class="hero-content">
-                <h1 class="headline">Halo, Saya **[Nama Lengkap Anda]**</h1>
-                <p class="subhead">Seorang **Web Developer Kreatif** yang bersemangat dalam membangun pengalaman digital yang menarik dan interaktif.</p>
-                <a href="#portofolio" class="cta-button">Lihat Karya Saya <i class="fas fa-arrow-right"></i></a>
+                <p class="subhead">CREATIVE WEB DEVELOPER</p>
+                <h1 class="headline">BANGUN MASA DEPAN DIGITAL<br>DENGAN KODE.</h1>
+                <p>Saya **[Nama Lengkap Anda]**, seorang pengembang kreatif yang berfokus pada desain antarmuka pengguna yang imersif dan pengalaman pengguna yang luar biasa. Mari kita ciptakan sesuatu yang hebat.</p>
+                <a href="#portofolio" class="cta-button">Jelajahi Proyek <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="hero-image">
-                <img src="placeholder-profile.jpg" alt="Foto Profil" class="profile-pic">
+                <img src="placeholder-profile.jpg" alt="Foto Profil Futuristik" class="profile-pic">
             </div>
         </section>
 
         <section id="pendidikan" class="content-section">
-            <h2>🎓 Pendidikan</h2>
-            <div class="timeline">
+            <h2 class="section-header">Pendidikan <i class="fas fa-graduation-cap"></i></h2>
+            <div class="timeline-container">
                 <div class="timeline-item">
-                    <h3>Sarjana Komputer | **[Nama Universitas/Institusi]**</h3>
-                    <p class="date">2018 - 2022</p>
-                    <p>Fokus studi pada Pengembangan Web dan Desain Interaksi. Proyek Akhir: Aplikasi E-commerce menggunakan MERN Stack.</p>
+                    <h3>Sarjana Teknik Informatika | **Universitas Teknologi Alpha**</h3>
+                    <p class="date">2019 - 2023</p>
+                    <p>Lulus dengan predikat *Cum Laude*. Spesialisasi dalam Full-Stack Development dan Arsitektur Aplikasi Skala Besar. Proyek Skripsi: Sistem Manajemen Konten Real-Time.</p>
                 </div>
-                <div class="timeline-item">
-                    <h3>SMA Sains | **[Nama Sekolah Menengah]**</h3>
-                    <p class="date">2015 - 2018</p>
-                    <p>Aktif dalam klub pemrograman dan kompetisi robotika.</p>
+                <div class="timeline-item animate-left">
+                    <h3>Bootcamp Web Mastery | **Digital Creator Institute**</h3>
+                    <p class="date">2023</p>
+                    <p>Fokus intensif 6 bulan pada modern JavaScript (ES6+), React Hooks, dan pengoptimalan performa web.</p>
                 </div>
             </div>
         </section>
 
-        <section id="pengalaman" class="content-section dark-bg">
-            <h2>💼 Pengalaman Kerja & Magang</h2>
-            <div class="timeline">
+        <section id="pengalaman" class="content-section">
+            <h2 class="section-header">Pengalaman & Magang <i class="fas fa-briefcase"></i></h2>
+            <div class="timeline-container">
                 <div class="timeline-item">
-                    <h3>**Junior Front-End Developer** | **[Nama Perusahaan Penuh Waktu]**</h3>
-                    <p class="date">Agustus 2022 - Sekarang</p>
-                    <p>Bertanggung jawab dalam mengembangkan dan memelihara antarmuka pengguna untuk aplikasi web berskala besar menggunakan **React** dan **Redux**. Meningkatkan performa *loading* halaman sebesar 20%.</p>
+                    <h3>**Front-End Engineer** | **Tech Solutions Co.**</h3>
+                    <p class="date">Januari 2024 - Sekarang</p>
+                    <p>Memimpin pengembangan UI/UX untuk produk SaaS utama perusahaan, meningkatkan Retensi Pengguna sebesar 15% melalui redesign interaktif. **Tech Stack: React, TypeScript, Tailwind CSS**.</p>
                 </div>
-                <div class="timeline-item">
-                    <h3>**Magang Web Developer** | **[Nama Perusahaan Magang]**</h3>
-                    <p class="date">Januari 2022 - Juni 2022</p>
-                    <p>**Fokus Utama:** Berkontribusi dalam pengembangan modul *dashboard* analitik internal. Belajar implementasi **RESTful API** dan praktik *clean code* dalam tim. Menggunakan **Vue.js** dan **Sass**.</p>
+                <div class="timeline-item animate-left">
+                    <h3>**Magang Web Development** | **Studio Kreatif Beta**</h3>
+                    <p class="date">Juli 2023 - Desember 2023</p>
+                    <p>**Fokus Utama:** Berkontribusi dalam prototipe dan implementasi Landing Page untuk 5 klien internasional. Bertanggung jawab penuh pada optimasi SEO on-page dan *loading speed*. **Menggunakan: Next.js, Framer Motion**.</p>
                 </div>
             </div>
         </section>
 
         <section id="portofolio" class="content-section">
-            <h2>💻 Portofolio Pembuatan Website</h2>
+            <h2 class="section-header">Proyek Pilihan <i class="fas fa-code"></i></h2>
             <div class="portfolio-grid">
                 
                 <div class="project-card">
-                    <img src="placeholder-project-1.jpg" alt="Screenshot Project E-Commerce">
-                    <h3>Aplikasi E-Commerce "Toko Serba Ada"</h3>
-                    <p>Platform belanja online modern dengan fitur keranjang, pembayaran, dan manajemen inventori.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">MongoDB</span>
-                        <span class="tech-tag">Styled-Components</span>
+                    <img src="placeholder-project-ecommerce.jpg" alt="Screenshot Project E-Commerce">
+                    <div class="project-details">
+                        <h3>E-Commerce "Aetheria Store"</h3>
+                        <p>Platform belanja next-gen dengan fitur AR-preview dan pembayaran kripto terintegrasi. Dirancang untuk kecepatan & skalabilitas.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">GraphQL</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                        </div>
+                        <a href="link-ke-live-demo-1" target="_blank" class="project-link">Lihat Live Demo <i class="fas fa-external-link-alt"></i></a>
                     </div>
-                    <a href="link-ke-live-demo-1" target="_blank" class="project-link">Lihat Demo <i class="fas fa-external-link-alt"></i></a>
                 </div>
 
                 <div class="project-card">
-                    <img src="placeholder-project-2.jpg" alt="Screenshot Project Landing Page Kreatif">
-                    <h3>Landing Page Agensi Kreatif "PixelPusat"</h3>
-                    <p>Desain *one-page* yang interaktif dan responsif untuk agensi digital, menampilkan animasi dan parallax scrolling.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">HTML5</span>
-                        <span class="tech-tag">CSS3 (Grid/Flexbox)</span>
-                        <span class="tech-tag">Vanilla JS</span>
-                        <span class="tech-tag">GSAP (untuk animasi)</span>
+                    <img src="placeholder-project-agency.jpg" alt="Screenshot Project Landing Page Kreatif">
+                    <div class="project-details">
+                        <h3>Landing Page "Quantum Agency"</h3>
+                        <p>Website agensi kreatif *one-page* dengan animasi scroll parallax dan interaksi mouse-hover yang kompleks, berfokus pada storytelling.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">Sass</span>
+                            <span class="tech-tag">Vanilla JS</span>
+                            <span class="tech-tag">GSAP</span>
+                        </div>
+                        <a href="link-ke-live-demo-2" target="_blank" class="project-link">Lihat Live Demo <i class="fas fa-external-link-alt"></i></a>
                     </div>
-                    <a href="link-ke-live-demo-2" target="_blank" class="project-link">Lihat Demo <i class="fas fa-external-link-alt"></i></a>
                 </div>
 
             </div>
@@ -541,12 +538,13 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 **Nama Anda**. Dibuat dengan ❤️ dan Kode.</p>
+        <p>Hubungi saya di: emailanda@mail.com</p>
         <div class="social-links">
-            <a href="link-linkedin" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
-            <a href="link-github" target="_blank"><i class="fab fa-github fa-lg"></i></a>
-            <a href="mailto:emailanda@mail.com"><i class="fas fa-envelope fa-lg"></i></a>
+            <a href="link-linkedin" target="_blank" title="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+            <a href="link-github" target="_blank" title="GitHub"><i class="fab fa-github fa-lg"></i></a>
+            <a href="link-behance-atau-dribbble" target="_blank" title="Dribbble/Behance"><i class="fas fa-palette fa-lg"></i></a>
         </div>
+        <p style="margin-top: 10px; font-size: 0.8rem; color: #5a5a7a;">&copy; 2025 Nama Anda. All Rights Reserved. Desain: Futuristik-Kreatif.</p>
     </footer>
 
     <script>
@@ -555,13 +553,13 @@
             const navLinks = document.querySelector('.nav-links');
             const links = document.querySelectorAll('.nav-links a');
             
-            // Fungsionalitas Menu Mobile Toggle
+            // 1. Fungsionalitas Menu Mobile Toggle
             mobileMenu.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
                 mobileMenu.classList.toggle('is-active'); 
             });
 
-            // Menutup menu mobile saat link diklik (untuk navigasi 1 halaman)
+            // Tutup menu saat link diklik
             links.forEach(link => {
                 link.addEventListener('click', () => {
                     if (navLinks.classList.contains('active')) {
@@ -571,39 +569,45 @@
                 });
             });
 
-            // Fungsionalitas Scroll Smooth
+            // 2. Scroll Smooth
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-
                     document.querySelector(this.getAttribute('href')).scrollIntoView({
                         behavior: 'smooth'
                     });
                 });
             });
 
-            // Efek Interaktif: Animasi Kartu Proyek saat Muncul (Intersection Observer)
+            // 3. Animasi Elemen saat Muncul (Intersection Observer)
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
                 threshold: 0.1 
             };
 
+            const timelineItems = document.querySelectorAll('.timeline-item');
             const projectCards = document.querySelectorAll('.project-card');
 
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
+                        entry.target.style.transform = 'translate(0)';
                         observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
 
+            // Terapkan Observer ke Item Timeline
+            timelineItems.forEach((item, index) => {
+                item.style.transition = `opacity 0.8s ease-out ${index * 0.2}s, transform 0.8s ease-out ${index * 0.2}s`;
+                observer.observe(item);
+            });
+
+            // Terapkan Observer ke Project Cards
             projectCards.forEach((card, index) => {
-                // Atur transisi dan delay berdasarkan index
-                card.style.transition = `opacity 0.6s ease-out ${index * 0.2}s, transform 0.6s ease-out ${index * 0.2}s`;
+                card.style.transition = `opacity 0.7s ease-out ${index * 0.15}s, transform 0.7s ease-out ${index * 0.15}s`;
                 observer.observe(card);
             });
         });
