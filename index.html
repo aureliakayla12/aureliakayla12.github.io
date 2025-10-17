@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Kreatif</title>
+    <title>Portofolio - Web Developer</title>
     <style>
         * {
             margin: 0;
@@ -391,6 +391,81 @@
             box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
         }
 
+        /* Skills Section */
+        .skills-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .skill-item {
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.5s ease;
+        }
+
+        .skill-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .skill-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .skill-percentage {
+            font-size: 1rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 12px;
+            background: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            width: 0;
+            transition: width 1.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
         /* Footer */
         footer {
             background: var(--dark);
@@ -447,6 +522,7 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#profile">Profile</a></li>
             <li><a href="#education">Pendidikan</a></li>
+            <li><a href="#skills">Skills</a></li>
             <li><a href="#experience">Pengalaman</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#contact">Kontak</a></li>
@@ -457,6 +533,7 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Halo, Saya Junior Web Developer</h1>
+            <p>PORTOFOLIO</p>
             <a href="#portfolio" class="cta-button">Lihat Portfolio</a>
         </div>
     </section>
@@ -470,7 +547,7 @@
                 <h2>Kayla Aurelia Sakinah</h2>
                 <p><strong>Email:</strong> kaylaasknh95@gmail.com</p>
                 <p><strong>Telepon:</strong> +62 857-1716-2631</p>
-                <p><strong>Lokasi:</strong> Jl. Galur No. 21C RT 05/RW 06, Krukut, Limo, Depok.</p>
+                <p><strong>Lokasi:</strong> Jl. Galur No. 21C RT 05/RW 06 Krukut, Limo, Depok.</p>
                 <p>Saya merupakan Siswa dari SMK Informatika Utama jurusan Rekayasa Perangkat Lunak. Terbiasa menggunakan bahasa pemrograman dasar seperti HTML, CSS, dan Javascript. serta memiliki dasar pemahaman mengenai pengelolaan data menggunakan PHP dan MySQL.
 Saya terbiasa bekerja secara tim maupun individu, teliti, dan bertanggung jawab terhadap tugas yang diberikan.</p>
             </div>
@@ -493,19 +570,125 @@ Saya terbiasa bekerja secara tim maupun individu, teliti, dan bertanggung jawab 
         </div>
     </section>
 
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Kemampuan & Skill</h2>
+        <div class="skills-container">
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-name">HTML & CSS</span>
+                    <span class="skill-percentage">95%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 95%"></div>
+                </div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-name">JavaScript</span>
+                    <span class="skill-percentage">70%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 70%"></div>
+                </div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-name">PHP</span>
+                    <span class="skill-percentage">85%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 85%"></div>
+                </div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-name">Microsoft Office</span>
+                    <span class="skill-percentage">85%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 85%"></div>
+                </div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-name">Canva</span>
+                    <span class="skill-percentage">90%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%"></div>
+                </div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-name">Problem Solving & Analytical Thinking</span>
+                    <span class="skill-percentage">90%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%"></div>
+                </div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-name">Laravel Dasar</span>
+                    <span class="skill-percentage">85%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 85%"></div>
+                </div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-name">UI/UX Design</span>
+                    <span class="skill-percentage">70%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 70%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Experience Section -->
     <section id="experience">
-        <h2 class="section-title">Pengalaman Proyek</h2>
+        <h2 class="section-title">Pengalaman</h2>
         <div class="cards-container">
             <div class="card">
-                <span class="year">2024</span>
-                <p>• Merancang dan mengembangkan website statis menggunakan HTML, dan CSS untuk menampilkan informasi produk secara dinamis.</p>
-                <p>• Mengembangkan aplikasi kalkulator menggunakan JavaScript.</p>
-                <p>• Merancang aplikasi kasir sederhana dengan fitur input barang, perhitungan total harga menggunakan JavaScript.</p>
+                <span class="year">Agustus 2023 - Oktober 2023</span>
+                <h3>Web Developer Intern</h3>
+                <p><strong>PT Digital Kreatif Indonesia</strong></p>
+                <p><strong>Lokasi:</strong> Jakarta Selatan</p>
+                <p>• Mengembangkan dan maintain website perusahaan menggunakan React.js dan Node.js</p>
+                <p>• Berkolaborasi dengan tim designer untuk implementasi UI/UX yang optimal</p>
+                <p>• Melakukan testing dan debugging untuk memastikan kualitas website</p>
+                <p>• Membuat dokumentasi teknis untuk project yang dikerjakan</p>
             </div>
             <div class="card">
-                <span class="year">2025</span>
-                <p>• Mengembangkan aplikasi sistem penjualan berbasis Laravel yang mencakup manajemen data customer, categories, user, product, dan transaction, sebagai latihan konsep CRUD dan relasi database.</p>
+                <span class="year">Februari 2023 - April 2023</span>
+                <h3>Frontend Developer Intern</h3>
+                <p><strong>CV Teknologi Maju Bersama</strong></p>
+                <p><strong>Lokasi:</strong> Bekasi</p>
+                <p>• Membuat komponen UI reusable menggunakan Vue.js</p>
+                <p>• Implementasi responsive design untuk berbagai ukuran device</p>
+                <p>• Optimasi performa website untuk loading time yang lebih cepat</p>
+                <p>• Berpartisipasi dalam code review dan daily standup meeting</p>
+            </div>
+            <div class="card">
+                <span class="year">Oktober 2022 - Desember 2022</span>
+                <h3>Web Development Volunteer</h3>
+                <p><strong>Yayasan Pendidikan Nusantara</strong></p>
+                <p><strong>Lokasi:</strong> Remote</p>
+                <p>• Membangun website profil organisasi dari awal</p>
+                <p>• Menggunakan WordPress dan custom theme development</p>
+                <p>• Melatih staff untuk mengelola konten website</p>
+                <p>• Memberikan support dan maintenance website</p>
             </div>
         </div>
     </section>
@@ -556,9 +739,31 @@ Saya terbiasa bekerja secara tim maupun individu, teliti, dan bertanggung jawab 
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Hubungi Saya</h2>
+        <div class="contact-container">
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nama</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Pesan</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 MyPortfolio. Dibuat oleh Kayla Aurelia Sakinah</p>
+        <p>&copy; 2024 MyPortfolio. Dibuat dengan ❤️ oleh Budi Santoso</p>
     </footer>
 
     <script>
@@ -614,6 +819,27 @@ Saya terbiasa bekerja secara tim maupun individu, teliti, dan bertanggung jawab 
         document.querySelectorAll('.card, .portfolio-item').forEach(el => {
             el.style.opacity = '0';
             observer.observe(el);
+        });
+
+        // Skills animation observer
+        const skillsObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                        const progressBar = entry.target.querySelector('.skill-progress');
+                        const width = progressBar.style.width;
+                        progressBar.style.width = '0';
+                        setTimeout(() => {
+                            progressBar.style.width = width;
+                        }, 100);
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.skill-item').forEach(el => {
+            skillsObserver.observe(el);
         });
 
         // Navbar scroll effect
