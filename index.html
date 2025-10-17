@@ -191,6 +191,49 @@
             animation: pulse 2s infinite;
         }
 
+                /* Profile Section */
+        .profile-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+            animation: pulse 2s infinite;
+            overflow: hidden;
+            border: 5px solid rgba(99, 102, 241, 0.3);
+            position: relative;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.2));
+            z-index: 1;
+        }
+
+
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
@@ -542,7 +585,10 @@
     <section id="profile">
         <h2 class="section-title">Profile Saya</h2>
         <div class="profile-container">
-            <img src="Kayla Aurelia S.png">
+            <div class="profile-img">
+                <img src="Kayla Aurelia S.png" alt="Profile Photo">
+            </div>
+
             <div class="profile-info">
                 <h2>Kayla Aurelia Sakinah</h2>
                 <p><strong>Email:</strong> kaylaasknh95@gmail.com</p>
