@@ -3,28 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Digital Kreatif</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+    <title>Portofolio Kreatif</title>
     <style>
-        /* =======================================
-           SECTION: CSS (ESTETIKA FUTURISTIK)
-           ======================================= */
-        
-        /* Variabel Warna */
-        :root {
-            --primary-color: #00e5ff; /* Cyan Terang (Neon) */
-            --secondary-color: #ff007f; /* Magenta (Aksen Kuat) */
-            --text-color: #e0f7fa; /* Putih Kebiruan */
-            --bg-color: #0d0d1e; /* Biru Sangat Gelap (Hampir Hitam) */
-            --card-bg: #1c1c38; /* Latar Belakang Kartu */
-            --line-color: rgba(0, 229, 255, 0.3); /* Garis Transparan Neon */
-            --font-main: 'Rajdhani', sans-serif;
-            --font-content: 'Montserrat', sans-serif;
-        }
-
-        /* RESET & BASE */
         * {
             margin: 0;
             padding: 0;
@@ -32,583 +12,643 @@
         }
 
         body {
-            font-family: var(--font-content);
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            scroll-behavior: smooth;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
             overflow-x: hidden;
         }
 
-        a {
-            color: var(--primary-color);
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 2rem;
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
             text-decoration: none;
-            transition: color 0.3s, opacity 0.3s;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
-        a:hover {
-            color: var(--secondary-color);
-            opacity: 0.8;
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
         }
 
-        /* HEADER / NAVBAR */
-        #navbar {
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            background: white;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .profile-card {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .profile-info h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #667eea;
+        }
+
+        .profile-info p {
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.9rem;
+            top: 1.5rem;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #667eea;
+        }
+
+        .timeline-item h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .date {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .portfolio-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-content h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-content p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            padding: 0.3rem 1rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .modal {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
             align-items: center;
-            padding: 1rem 5%;
-            background-color: rgba(13, 13, 30, 0.9);
-            border-bottom: 1px solid var(--line-color);
-            backdrop-filter: blur(5px);
-        }
-
-        .logo {
-            font-family: var(--font-main);
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .logo span {
-            color: var(--secondary-color);
-        }
-
-        .nav-links a {
-            margin-left: 2rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            padding: 5px 0;
-            position: relative;
-        }
-        
-        /* Efek Hover Garis Bawah Neon */
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
-            transition: width 0.3s ease, left 0.3s ease;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-            left: 0;
-        }
-
-        /* Bagian Umum */
-        .content-section {
-            padding: 6rem 5%;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
             justify-content: center;
-            align-items: center;
-            position: relative;
-            border-bottom: 1px dashed var(--line-color);
-        }
-        
-        .section-header {
-            font-family: var(--font-main);
-            font-size: 3.5rem;
-            margin-bottom: 3rem;
-            text-transform: uppercase;
-            color: var(--primary-color);
-            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+            padding: 2rem;
         }
 
-        /* HERO SECTION */
-        #profil {
-            flex-direction: row;
-            text-align: left;
-            padding-top: 100px;
+        .modal.active {
+            display: flex;
         }
 
-        .hero-content {
-            max-width: 60%;
-            padding-right: 5%;
-        }
-
-        /* Efek Glitch pada Headline */
-        .headline {
-            font-family: var(--font-main);
-            font-size: 4.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-            color: var(--text-color);
-            text-transform: uppercase;
-            position: relative;
-            animation: text-shadow 1.5s infinite alternate;
-        }
-        
-        /* Animasi Text Shadow (Glitch Halus) */
-        @keyframes text-shadow {
-            0% { text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--secondary-color); }
-            100% { text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--secondary-color); }
-        }
-
-        .subhead {
-            font-size: 1.6rem;
-            color: var(--primary-color);
-            margin-bottom: 2.5rem;
-            font-family: var(--font-main);
-            letter-spacing: 1px;
-        }
-
-        .cta-button {
-            background-color: var(--secondary-color);
-            color: var(--bg-color);
-            padding: 12px 30px;
-            border-radius: 5px;
-            font-weight: 700;
-            box-shadow: 0 0 15px rgba(255, 0, 127, 0.7);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(255, 0, 127, 1);
-            background-color: #ff3399;
-        }
-
-        .hero-image {
-            max-width: 35%;
-        }
-
-        /* Animasi Hologram Bingkai Gambar */
-        .profile-pic {
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            max-width: 600px;
             width: 100%;
-            max-width: 350px;
-            height: auto;
-            border-radius: 10px;
-            border: 3px solid var(--primary-color);
-            box-shadow: 0 0 20px rgba(0, 229, 255, 0.7);
-            filter: grayscale(30%);
-            transition: filter 0.5s, box-shadow 0.5s;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: scaleIn 0.3s ease;
         }
 
-        .profile-pic:hover {
-            filter: grayscale(0%);
-            box-shadow: 0 0 40px var(--primary-color);
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s ease;
         }
 
-        /* TIMELINE (Pendidikan & Pengalaman) */
-        .timeline-container {
+        .close-modal:hover {
+            color: #667eea;
+        }
+
+        .floating-circles {
+            position: absolute;
             width: 100%;
-            max-width: 900px;
-            position: relative;
-        }
-
-        .timeline-container::before {
-            content: '';
-            position: absolute;
-            width: 2px;
-            background-color: var(--primary-color);
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            margin-left: -1px;
-            box-shadow: 0 0 10px var(--primary-color);
-        }
-
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            margin-bottom: 40px;
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            border: 1px solid var(--line-color);
-            box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
-            opacity: 0; /* Untuk animasi JS */
-            transform: translateX(50px); /* Untuk animasi JS */
-        }
-        
-        .timeline-item.animate-left { transform: translateX(-50px); }
-
-        .timeline-item:nth-child(odd) { left: 0; }
-        .timeline-item:nth-child(even) { left: 50%; }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            right: -10px;
-            background-color: var(--bg-color);
-            border: 3px solid var(--secondary-color);
-            top: 15px;
-            border-radius: 50%;
+            height: 100%;
+            overflow: hidden;
             z-index: 1;
         }
 
-        .timeline-item:nth-child(even)::after {
-            left: -8px;
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            animation: float 20s infinite;
         }
 
-        .timeline-item h3 {
-            color: var(--secondary-color);
-            font-family: var(--font-main);
-            font-weight: 700;
+        .circle:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-delay: 0s; }
+        .circle:nth-child(2) { width: 60px; height: 60px; left: 80%; animation-delay: 2s; }
+        .circle:nth-child(3) { width: 100px; height: 100px; left: 50%; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-100px) rotate(180deg); }
         }
 
-        .timeline-item .date {
-            color: var(--primary-color);
-            font-style: italic;
-            margin-bottom: 0.5rem;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* PORTOFOLIO */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            width: 100%;
-            max-width: 1200px;
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
-        .project-card {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid var(--line-color);
-            box-shadow: 0 0 15px rgba(0, 229, 255, 0.1);
-            transition: transform 0.4s, box-shadow 0.4s;
-            opacity: 0; /* Untuk animasi JS */
-            transform: translateY(30px); /* Untuk animasi JS */
-        }
-
-        .project-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 10px 30px rgba(255, 0, 127, 0.4);
-            border: 1px solid var(--secondary-color);
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-            border-bottom: 2px solid var(--primary-color);
-        }
-
-        .project-details {
-            padding: 20px;
-        }
-
-        .project-card h3 {
-            color: var(--primary-color);
-            font-family: var(--font-main);
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
-        }
-
-        .tech-stack {
-            margin-top: 10px;
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .tech-tag {
-            background-color: var(--secondary-color);
-            color: var(--bg-color);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-right: 8px;
-            margin-bottom: 8px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .project-link {
-            display: block;
-            text-align: center;
-            margin-top: 15px;
-            padding: 10px;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-            border-radius: 5px;
-            font-weight: 600;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .project-link:hover {
-            background-color: var(--primary-color);
-            color: var(--bg-color);
-        }
-
-        /* FOOTER */
         footer {
-            padding: 2rem 5%;
+            background: #333;
+            color: white;
             text-align: center;
-            background-color: var(--bg-color);
-            border-top: 1px solid var(--secondary-color);
+            padding: 2rem;
         }
 
-        .social-links a {
-            margin: 0 15px;
-            font-size: 1.8rem;
-            color: var(--primary-color);
-        }
-        
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 900px) {
-            .hero-section {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hero-content, .hero-image {
-                max-width: 100%;
-                padding: 0;
-            }
-
-            .hero-image {
-                margin-top: 3rem;
-            }
-
-            .headline {
-                font-size: 3rem;
-            }
-
-            /* Timeline Mobile */
-            .timeline-container::before {
-                left: 20px;
-            }
-            .timeline-item {
-                width: 100%;
-                padding-left: 60px;
-                padding-right: 10px;
-                left: 0 !important;
-            }
-            .timeline-item::after {
-                left: 10px !important;
-            }
-
-            /* Navbar Mobile */
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--card-bg);
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links a {
-                margin: 0;
-                padding: 1rem 5%;
-                border-bottom: 1px solid var(--line-color);
-                text-align: center;
-            }
-
-            .menu-toggle {
-                display: flex;
-                cursor: pointer;
-                flex-direction: column;
-                justify-content: space-around;
-                width: 30px;
-                height: 25px;
-            }
-
-            .bar {
-                display: block;
-                width: 100%;
-                height: 3px;
-                background-color: var(--text-color);
-                border-radius: 10px;
-                transition: all 0.3s linear;
-            }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.2rem; }
+            .profile-card { flex-direction: column; text-align: center; }
+            .nav-links { gap: 1rem; }
+            .portfolio-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-
-    <header id="navbar">
-        <div class="logo">Kayla Aurelia Sakinah</div>
-        <nav class="nav-links">
-            <a href="#profil">Profil</a>
-            <a href="#pendidikan">Pendidikan</a>
-            <a href="#pengalaman">Pengalaman Proyek</a>
-            <a href="#portofolio">Portofolio</a>
-        </nav>
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">MyPortfolio</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#profil">Profil</a></li>
+                <li><a href="#pendidikan">Pendidikan</a></li>
+                <li><a href="#pengalaman">Pengalaman</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <section id="profil" class="content-section">
-            <div class="hero-content">
-                <p class="subhead">CREATIVE WEB DEVELOPER</p>
-                <h1 class="headline">BANGUN MASA DEPAN DIGITAL<br>DENGAN KODE.</h1>
-                <p>Saya **[Nama Lengkap Anda]**, seorang pengembang kreatif yang berfokus pada desain antarmuka pengguna yang imersif dan pengalaman pengguna yang luar biasa. Mari kita ciptakan sesuatu yang hebat.</p>
-                <a href="#portofolio" class="cta-button">Jelajahi Proyek <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="hero-image">
-                <img src="placeholder-profile.jpg" alt="Foto Profil Futuristik" class="profile-pic">
-            </div>
-        </section>
+    <section class="hero" id="home">
+        <div class="floating-circles">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Passionate Web Developer & Designer</p>
+            <a href="#profil" class="btn">Explore More</a>
+        </div>
+    </section>
 
-        <section id="pendidikan" class="content-section">
-            <h2 class="section-header">Pendidikan <i class="fas fa-graduation-cap"></i></h2>
-            <div class="timeline-container">
-                <div class="timeline-item">
-                    <h3>Sarjana Teknik Informatika | **Universitas Teknologi Alpha**</h3>
-                    <p class="date">2019 - 2023</p>
-                    <p>Lulus dengan predikat *Cum Laude*. Spesialisasi dalam Full-Stack Development dan Arsitektur Aplikasi Skala Besar. Proyek Skripsi: Sistem Manajemen Konten Real-Time.</p>
-                </div>
-                <div class="timeline-item animate-left">
-                    <h3>Bootcamp Web Mastery | **Digital Creator Institute**</h3>
-                    <p class="date">2023</p>
-                    <p>Fokus intensif 6 bulan pada modern JavaScript (ES6+), React Hooks, dan pengoptimalan performa web.</p>
-                </div>
+    <section class="section" id="profil">
+        <h2 class="section-title">Profil Saya</h2>
+        <div class="profile-card">
+            <div class="profile-image">JD</div>
+            <div class="profile-info">
+                <h2>John Doe</h2>
+                <p><strong>Email:</strong> johndoe@email.com</p>
+                <p><strong>Telepon:</strong> +62 812-3456-7890</p>
+                <p><strong>Lokasi:</strong> Jakarta, Indonesia</p>
+                <p style="margin-top: 1rem;">
+                    Saya adalah seorang web developer yang passionate dalam menciptakan website yang interaktif, modern, dan user-friendly. 
+                    Dengan pengalaman dalam berbagai teknologi web terkini, saya selalu berusaha menghadirkan solusi terbaik untuk setiap proyek.
+                </p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="pengalaman" class="content-section">
-            <h2 class="section-header">Pengalaman & Magang <i class="fas fa-briefcase"></i></h2>
-            <div class="timeline-container">
-                <div class="timeline-item">
-                    <h3>**Front-End Engineer** | **Tech Solutions Co.**</h3>
-                    <p class="date">Januari 2024 - Sekarang</p>
-                    <p>Memimpin pengembangan UI/UX untuk produk SaaS utama perusahaan, meningkatkan Retensi Pengguna sebesar 15% melalui redesign interaktif. **Tech Stack: React, TypeScript, Tailwind CSS**.</p>
-                </div>
-                <div class="timeline-item animate-left">
-                    <h3>**Magang Web Development** | **Studio Kreatif Beta**</h3>
-                    <p class="date">Juli 2023 - Desember 2023</p>
-                    <p>**Fokus Utama:** Berkontribusi dalam prototipe dan implementasi Landing Page untuk 5 klien internasional. Bertanggung jawab penuh pada optimasi SEO on-page dan *loading speed*. **Menggunakan: Next.js, Framer Motion**.</p>
-                </div>
+    <section class="section" id="pendidikan">
+        <h2 class="section-title">Pendidikan</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Universitas Indonesia</h3>
+                <div class="date">2020 - 2024</div>
+                <p><strong>S1 Teknik Informatika</strong></p>
+                <p>IPK: 3.75/4.00</p>
+                <p>Fokus studi: Web Development, Database Management, Software Engineering</p>
             </div>
-        </section>
+            <div class="timeline-item">
+                <h3>SMA Negeri 1 Jakarta</h3>
+                <div class="date">2017 - 2020</div>
+                <p><strong>IPA</strong></p>
+                <p>Nilai rata-rata: 90/100</p>
+            </div>
+        </div>
+    </section>
 
-        <section id="portofolio" class="content-section">
-            <h2 class="section-header">Proyek Pilihan <i class="fas fa-code"></i></h2>
-            <div class="portfolio-grid">
-                
-                <div class="project-card">
-                    <img src="placeholder-project-ecommerce.jpg" alt="Screenshot Project E-Commerce">
-                    <div class="project-details">
-                        <h3>E-Commerce "Aetheria Store"</h3>
-                        <p>Platform belanja next-gen dengan fitur AR-preview dan pembayaran kripto terintegrasi. Dirancang untuk kecepatan & skalabilitas.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Next.js</span>
-                            <span class="tech-tag">GraphQL</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">Tailwind CSS</span>
-                        </div>
-                        <a href="link-ke-live-demo-1" target="_blank" class="project-link">Lihat Live Demo <i class="fas fa-external-link-alt"></i></a>
+    <section class="section" id="pengalaman">
+        <h2 class="section-title">Pengalaman Magang</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Frontend Developer Intern - PT Tech Innovate Indonesia</h3>
+                <div class="date">Januari 2024 - Maret 2024</div>
+                <p><strong>Deskripsi:</strong></p>
+                <ul style="margin-left: 1.5rem; color: #666;">
+                    <li>Mengembangkan user interface untuk aplikasi web company profile menggunakan React.js dan Tailwind CSS</li>
+                    <li>Berkolaborasi dengan tim backend untuk integrasi API RESTful</li>
+                    <li>Melakukan optimasi performa website hingga mencapai 95+ score di Lighthouse</li>
+                    <li>Implementasi responsive design untuk berbagai ukuran device</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h3>Web Developer Intern - CV Digital Kreasi</h3>
+                <div class="date">Juli 2023 - September 2023</div>
+                <p><strong>Deskripsi:</strong></p>
+                <ul style="margin-left: 1.5rem; color: #666;">
+                    <li>Membuat website landing page untuk klien dari berbagai industri</li>
+                    <li>Menggunakan HTML, CSS, JavaScript untuk development</li>
+                    <li>Menerapkan SEO best practices untuk meningkatkan visibility website</li>
+                    <li>Maintenance dan update konten website klien secara berkala</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="portfolio">
+        <h2 class="section-title">Portfolio Website</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-card" onclick="openModal('project1')">
+                <div class="portfolio-image">🛒</div>
+                <div class="portfolio-content">
+                    <h3>E-Commerce Platform</h3>
+                    <p>Platform e-commerce modern dengan fitur keranjang belanja, payment gateway, dan dashboard admin yang lengkap.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Express</span>
+                        <span class="tech-tag">Stripe API</span>
                     </div>
                 </div>
+            </div>
 
-                <div class="project-card">
-                    <img src="placeholder-project-agency.jpg" alt="Screenshot Project Landing Page Kreatif">
-                    <div class="project-details">
-                        <h3>Landing Page "Quantum Agency"</h3>
-                        <p>Website agensi kreatif *one-page* dengan animasi scroll parallax dan interaksi mouse-hover yang kompleks, berfokus pada storytelling.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">Sass</span>
-                            <span class="tech-tag">Vanilla JS</span>
-                            <span class="tech-tag">GSAP</span>
-                        </div>
-                        <a href="link-ke-live-demo-2" target="_blank" class="project-link">Lihat Live Demo <i class="fas fa-external-link-alt"></i></a>
+            <div class="portfolio-card" onclick="openModal('project2')">
+                <div class="portfolio-image">📱</div>
+                <div class="portfolio-content">
+                    <h3>Social Media Dashboard</h3>
+                    <p>Dashboard analytics untuk social media management dengan real-time data visualization dan reporting tools.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">Chart.js</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                        <span class="tech-tag">REST API</span>
                     </div>
                 </div>
-
             </div>
-        </section>
+        </div>
+    </section>
 
-    </main>
+    <div class="modal" id="modal">
+        <div class="modal-content" id="modalContent">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
 
     <footer>
-        <p>Hubungi saya di: emailanda@mail.com</p>
-        <div class="social-links">
-            <a href="link-linkedin" target="_blank" title="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
-            <a href="link-github" target="_blank" title="GitHub"><i class="fab fa-github fa-lg"></i></a>
-            <a href="link-behance-atau-dribbble" target="_blank" title="Dribbble/Behance"><i class="fas fa-palette fa-lg"></i></a>
-        </div>
-        <p style="margin-top: 10px; font-size: 0.8rem; color: #5a5a7a;">&copy; 2025 Nama Anda. All Rights Reserved. Desain: Futuristik-Kreatif.</p>
+        <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+        <p>Made with ❤️ by John Doe</p>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const navLinks = document.querySelector('.nav-links');
-            const links = document.querySelectorAll('.nav-links a');
-            
-            // 1. Fungsionalitas Menu Mobile Toggle
-            mobileMenu.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                mobileMenu.classList.toggle('is-active'); 
-            });
+        const projects = {
+            project1: {
+                name: "E-Commerce Platform",
+                screenshot: "🛒",
+                description: "Platform e-commerce lengkap dengan fitur-fitur modern untuk pengalaman belanja online yang optimal.",
+                features: [
+                    "Sistem keranjang belanja dengan real-time update",
+                    "Integrasi payment gateway (Stripe)",
+                    "Dashboard admin untuk manajemen produk dan order",
+                    "Sistem rating dan review produk",
+                    "Filter dan search produk yang advanced",
+                    "Responsive design untuk mobile dan desktop"
+                ],
+                techStack: ["React.js", "Node.js", "MongoDB", "Express", "Stripe API", "Redux", "JWT Authentication"],
+                role: "Full Stack Developer",
+                duration: "3 bulan"
+            },
+            project2: {
+                name: "Social Media Dashboard",
+                screenshot: "📱",
+                description: "Dashboard analytics komprehensif untuk mengelola dan menganalisis performa social media dalam satu platform.",
+                features: [
+                    "Real-time data visualization dengan Chart.js",
+                    "Multi-platform integration (Facebook, Instagram, Twitter)",
+                    "Automated reporting dan export ke PDF/Excel",
+                    "Scheduling post untuk berbagai platform",
+                    "Engagement analytics dan insights",
+                    "User management dan team collaboration"
+                ],
+                techStack: ["Vue.js", "Chart.js", "Firebase", "Tailwind CSS", "REST API", "Vuex", "Social Media APIs"],
+                role: "Frontend Developer",
+                duration: "2 bulan"
+            }
+        };
 
-            // Tutup menu saat link diklik
-            links.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                        mobileMenu.classList.remove('is-active');
-                    }
-                });
-            });
+        function openModal(projectId) {
+            const modal = document.getElementById('modal');
+            const modalBody = document.getElementById('modalBody');
+            const project = projects[projectId];
 
-            // 2. Scroll Smooth
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+            modalBody.innerHTML = `
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <div style="font-size: 5rem; margin-bottom: 1rem;">${project.screenshot}</div>
+                    <h2 style="color: #667eea; margin-bottom: 1rem;">${project.name}</h2>
+                </div>
+                <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.8;">${project.description}</p>
+                
+                <h3 style="color: #667eea; margin-bottom: 1rem;">Fitur Utama:</h3>
+                <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #666; line-height: 1.8;">
+                    ${project.features.map(f => `<li>${f}</li>`).join('')}
+                </ul>
+                
+                <h3 style="color: #667eea; margin-bottom: 1rem;">Tech Stack:</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                    ${project.techStack.map(tech => `
+                        <span style="padding: 0.3rem 1rem; background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); border-radius: 20px; font-size: 0.85rem; color: #667eea; font-weight: 500;">${tech}</span>
+                    `).join('')}
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding: 1rem; background: rgba(102, 126, 234, 0.05); border-radius: 10px;">
+                    <div>
+                        <strong style="color: #667eea;">Role:</strong>
+                        <p style="color: #666; margin-top: 0.3rem;">${project.role}</p>
+                    </div>
+                    <div>
+                        <strong style="color: #667eea;">Duration:</strong>
+                        <p style="color: #666; margin-top: 0.3rem;">${project.duration}</p>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('active');
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target == modal) {
+                modal.classList.remove('active');
+            }
+        }
+
+        window.onscroll = function() {
+            const navbar = document.getElementById('navbar');
+            if (window.pageYOffset > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        };
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
                         behavior: 'smooth'
                     });
-                });
-            });
-
-            // 3. Animasi Elemen saat Muncul (Intersection Observer)
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1 
-            };
-
-            const timelineItems = document.querySelectorAll('.timeline-item');
-            const projectCards = document.querySelectorAll('.project-card');
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translate(0)';
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            // Terapkan Observer ke Item Timeline
-            timelineItems.forEach((item, index) => {
-                item.style.transition = `opacity 0.8s ease-out ${index * 0.2}s, transform 0.8s ease-out ${index * 0.2}s`;
-                observer.observe(item);
-            });
-
-            // Terapkan Observer ke Project Cards
-            projectCards.forEach((card, index) => {
-                card.style.transition = `opacity 0.7s ease-out ${index * 0.15}s, transform 0.7s ease-out ${index * 0.15}s`;
-                observer.observe(card);
+                }
             });
         });
     </script>
