@@ -302,7 +302,8 @@
             margin-bottom: 0.5rem;
         }
 
-                /* Portfolio Grid */
+        /* Portfolio Grid */
+
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -389,8 +390,82 @@
             font-size: 0.9rem;
         }
 
+        /* Sertifikat */
+
+         .sertifikat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sertifikat-item {
+            background: #1a1a1a;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+            transition: all 0.3s;
+        }
+
+        .sertifikat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+
+        .sertifikat-img {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sertifikat-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sertifikat-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .sertifikat-item:hover .sertifikat-img::before {
+            opacity: 1;
+        }
+
+        .sertifikat-content {
+            padding: 2rem;
+        }
+
+        .sertifikat-content h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .sertifikat-content p {
+            color: #a0a0a0;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
         
         /* Contact Form */
+
         .contact-container {
             max-width: 600px;
             margin: 0 auto;
@@ -450,7 +525,8 @@
             box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
         }
 
-                /* Skills Section */
+        /* Skills Section */
+
         .skills-container {
             max-width: 900px;
             margin: 0 auto;
@@ -577,7 +653,7 @@
 
     <!-- Navigation -->
     <nav>
-        <div class="logo">MyPortfolio</div>
+        <div class="logo">PortfolioKayla</div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#profile">Profile</a></li>
@@ -612,7 +688,7 @@
                 <p><strong>Telepon:</strong> +62 857-1716-2631</p>
                 <p><strong>Lokasi:</strong> Jl. Galur No. 21C RT 05/RW 06 Krukut, Limo, Depok.</p>
                 <p>Saya merupakan Siswa dari SMK Informatika Utama jurusan Pengembangan Perangkat Lunak & Gim (PPLG). Terbiasa menggunakan bahasa pemrograman dasar seperti HTML, CSS, dan Javascript. serta memiliki dasar pemahaman mengenai pengelolaan data menggunakan PHP dan MySQL.
-Saya terbiasa bekerja secara tim maupun individu, teliti, dan bertanggung jawab terhadap tugas yang diberikan.</p>
+                Saya terbiasa bekerja secara tim maupun individu, teliti, dan bertanggung jawab terhadap tugas yang diberikan.</p>
             </div>
         </div>
     </section>
@@ -640,20 +716,20 @@ Saya terbiasa bekerja secara tim maupun individu, teliti, dan bertanggung jawab 
             <div class="skill-item">
                 <div class="skill-header">
                     <span class="skill-name">HTML/CSS</span>
-                    <span class="skill-percentage">95%</span>
+                    <span class="skill-percentage">100%</span>
                 </div>
                 <div class="skill-bar">
-                    <div class="skill-progress" style="width: 95%"></div>
+                    <div class="skill-progress" style="width: 100%"></div>
                 </div>
             </div>
             
             <div class="skill-item">
                 <div class="skill-header">
-                    <span class="skill-name">JavaScript Dasar</span>
-                    <span class="skill-percentage">70%</span>
+                    <span class="skill-name">Microsoft Office</span>
+                    <span class="skill-percentage">95%</span>
                 </div>
                 <div class="skill-bar">
-                    <div class="skill-progress" style="width: 70%"></div>
+                    <div class="skill-progress" style="width: 95%"></div>
                 </div>
             </div>
             
@@ -679,11 +755,11 @@ Saya terbiasa bekerja secara tim maupun individu, teliti, dan bertanggung jawab 
             
             <div class="skill-item">
                 <div class="skill-header">
-                    <span class="skill-name">Microsoft Office</span>
-                    <span class="skill-percentage">88%</span>
+                    <span class="skill-name">Canva</span>
+                    <span class="skill-percentage">90%</span>
                 </div>
                 <div class="skill-bar">
-                    <div class="skill-progress" style="width: 88%"></div>
+                    <div class="skill-progress" style="width: 90%"></div>
                 </div>
             </div>
             
@@ -699,11 +775,11 @@ Saya terbiasa bekerja secara tim maupun individu, teliti, dan bertanggung jawab 
             
             <div class="skill-item">
                 <div class="skill-header">
-                    <span class="skill-name">Canva</span>
-                    <span class="skill-percentage">88%</span>
+                    <span class="skill-name">JavaScript</span>
+                    <span class="skill-percentage">70%</span>
                 </div>
                 <div class="skill-bar">
-                    <div class="skill-progress" style="width: 88%"></div>
+                    <div class="skill-progress" style="width: 70%"></div>
                 </div>
             </div>
             
@@ -725,16 +801,17 @@ Saya terbiasa bekerja secara tim maupun individu, teliti, dan bertanggung jawab 
         <h2 class="section-title">Pengalaman Proyek</h2>
         <div class="cards-container">
             <div class="card">
-                <span class="year">2024</span>
-                <h3>Web Developer Intern</h3>
-                <p>• Merancang dan mengembangkan website statis menggunakan HTML, dan CSS untuk menampilkan informasi produk secara dinamis.</p>
-                <p>• Mengembangkan aplikasi kalkulator menggunakan JavaScript.</p>
-                <p>• Merancang aplikasi kasir sederhana dengan fitur input barang, perhitungan total harga menggunakan JavaScript.</p>
+                <span class="year">TAHUN 2024</span>
+                <h3>1. Merancang dan mengembangkan website statis menggunakan HTML, dan CSS untuk menampilkan informasi produk secara dinamis.</h3><br>
+                <h3>2. Mengembangkan aplikasi kalkulator menggunakan JavaScript.</h3><br>
+                <h3>3. Merancang aplikasi kasir sederhana dengan fitur input barang, perhitungan total harga menggunakan JavaScript.</h3><br>
             </div>
             <div class="card">
-                <span class="year">2025</span>
-                <h3>Frontend Developer Intern</h3>
-                <p>• Mengembangkan aplikasi sistem penjualan berbasis Laravel yang mencakup manajemen data customer, categories, user, product, dan transaction, sebagai latihan konsep CRUD dan relasi database.</p>
+                <span class="year">TAHUN 2025</span>
+                <h3>1. Mengembangkan aplikasi sistem penjualan berbasis Laravel yang mencakup manajemen data customer, categories, user, product, dan transaction,
+                    sebagai latihan konsep CRUD dan relasi database.</h3><br>
+                <h3>2. Merancang skema database proyek dengan MySQL. Pengalaman mencakup praktik mandiri dalam menulis query CREATE TABLE untuk membangun tabel-tabel dasar dan tabel penghubung,
+                    sekaligus menetapkan kunci relasional untuk memastikan keakuratan dan keterkaitan data.</h3><br>
             </div>
         </div>
     </section>
@@ -745,47 +822,91 @@ Saya terbiasa bekerja secara tim maupun individu, teliti, dan bertanggung jawab 
         <div class="portfolio-grid">
             <div class="portfolio-item">
                 <div class="portfolio-img">
-                    <img src="portofolio(1) web statis.png" alt="E-Commerce Website">
+                    <img src="portofolio(1).png" alt="E-Commerce Website">
                 </div>
                 <div class="portfolio-content">
                     <h3>E-Commerce Modern Shop</h3>
                     <p>Platform e-commerce lengkap dengan fitur keranjang belanja, pembayaran online, manajemen produk.</p>
                     <div class="tech-stack">
-                        <span class="tech-tag">Html</span>
-                        <span class="tech-tag">Css</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
                     </div>
                 </div>
             </div>
 
             <div class="portfolio-item">
                 <div class="portfolio-img">
-                    <img src="portofolio(5) kalkulator.png" alt="Kalulator">
-                </div>
-                <div class="portfolio-content">
-                    <h3>Kalkulator</h3>
-                    <p>Membuat aplikasi kalkulator sederhana yang memungkinkan pengguna untuk melakukan operasi matematika dasar seperti penjumlahan, pengurangan, perkalian, dan pembagian..</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">JavaScript</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="portfolio-item">
-                <div class="portfolio-img">
-                    <img src="portofolio(8) aplikasi kasir.png" alt="Aplikasi Kasir">
+                    <img src="portofolio(4).png" alt="Aplikasi Kasir">
                 </div>
                 <div class="portfolio-content">
                     <h3>Aplikasi Kasir Sederhana</h3>
-                    <p>Mengembangkan aplikasi kasir sederhana yang mampu memproses transaksi penjualan secara real-time, menghitung total harga, memberikan kembalian, dan mencatat daftar produk yang dibeli.</p>
+                    <p>Mengembangkan aplikasi kasir sederhana yang mampu memproses transaksi penjualan,
+                        menghitung total harga, memberikan kembalian, dan mencatat daftar produk yang dibeli.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <img src="portofolio(2).png" alt="Desain Layout Web">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Desain Layout Web</h3>
+                    <p>Melakukan pengembangan layout untuk proyek situs Web Perusahaan/Korporat,
+                        memastikan tata letak visual yang efektif dan optimal dalam mempresentasikan layanan dan portofolio perusahaan.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <img src="portofolio(3).png" alt="Kalulator">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Kalkulator</h3>
+                    <p>Membuat aplikasi kalkulator sederhana yang memungkinkan pengguna untuk melakukan operasi matematika dasar
+                        seperti penjumlahan, pengurangan, perkalian, dan pembagian.</p>
                     <div class="tech-stack">
                         <span class="tech-tag">JavaScript</span>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
     </section>
 
+
+            <!-- Sertifikat Section -->
+    <section id="sertifikat">
+        <h2 class="section-title">Sertifikat</h2>
+        <div class="sertifikat-grid">
+            <div class="sertifikat-item">
+                <div class="sertifikat-img">
+                    <img src="IntroductionHTML.jpg">
+                </div>
+                <div class="sertifikat-content">
+                    <h3>Sertifikat Introduction To HTML</h3>
+                    <p>Sololearn</p>
+                    <p>2025</p>
+                </div>
+            </div>
+
+             <div class="sertifikat-item">
+                <div class="sertifikat-img">
+                    <img src="IntroductionCSS.jpg">
+                </div>
+                <div class="sertifikat-content">
+                    <h3>Sertifikat Introduction To CSS</h3>
+                     <p>Sololearn</p>
+                     <p>2025</p>
+                </div>
+            </div>
+    </section>
 
         <!-- Contact Section -->
     <section id="contact">
@@ -891,6 +1012,7 @@ Saya terbiasa bekerja secara tim maupun individu, teliti, dan bertanggung jawab 
         document.querySelectorAll('.skill-item').forEach(el => {
             skillsObserver.observe(el);
         });
+
 
         // Navbar scroll effect
         let lastScroll = 0;
